@@ -11,7 +11,7 @@ if (!defined('JOBSHADOWING')) {
             <li><a id="contact-nav" href="./contact.php">Contact Us</a></li>
             <?php
             if (isset($_SESSION['LOGGED_IN']) && ($userInfo['id'] == ADMIN)) {
-                print '<li><a id="admin-nav" href="/jobshadowing/admin.php">Admin</a></li>';
+                print '<li><a id="admin-nav" href="./admin.php">Admin</a></li>';
             }
             ?>
 
