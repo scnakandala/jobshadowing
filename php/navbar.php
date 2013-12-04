@@ -7,8 +7,8 @@ if (!defined('JOBSHADOWING')) {
     <div class="my-navbar-header">            
         <ul class="my-nav-links">
             <li><a id="home-nav" href="./mentors_list.php?order=company">Job Shadowing</a></li>
-            <li><a id="about-nav" href="/jobshadowing/about.php">What is Job Shadowing?</a></li>
-            <li><a id="contact-nav" href="/jobshadowing/contact.php">Contact Us</a></li>
+            <li><a id="about-nav" href="./about.php">What is Job Shadowing?</a></li>
+            <li><a id="contact-nav" href="./contact.php">Contact Us</a></li>
             <?php
             if (isset($_SESSION['LOGGED_IN']) && ($userInfo['id'] == ADMIN)) {
                 print '<li><a id="admin-nav" href="/jobshadowing/admin.php">Admin</a></li>';
