@@ -19,7 +19,7 @@ $loginUrl = $facebook->getLoginUrl(array(
     'redirect_uri' => REDIRECT_URI
 ));
 
-$logoutUrl = $facebook->getLogoutUrl(array( 'next' => 'http://localhost/jobshadowing/logout.php' ));
+$logoutUrl = $facebook->getLogoutUrl(array( 'next' => 'http://jobshadowing-scn.rhcloud.com/logout.php' ));
 
 if($fbuser){
     try {

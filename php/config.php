@@ -20,7 +20,7 @@ define('ADMIN_URL', ROOT_DIR . '/admin.php');
  */
 define('APP_ID', '572241939518439');
 define('APP_SECRET', '724038d2a9ec4c91166975cc2eadb62f');
-define('REDIRECT_URI','http://localhost/jobshadowing/select_uni.php');
+define('REDIRECT_URI','http://jobshadowing-scn.rhcloud.com/select_uni.php');
 
 /**
  * includes
