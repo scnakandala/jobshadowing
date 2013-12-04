@@ -1,9 +1,13 @@
 <?php
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'jobshadowing');
+define('DB_SERVER', getenv("OPENSHIFT_MYSQL_DB_HOST").":".getenv("OPENSHIFT_MYSQL_DB_PORT"));
+define('DB_USERNAME', getenv("OPENSHIFT_MYSQL_DB_USERNAME"));
+define('DB_PASSWORD', getenv("OPENSHIFT_MYSQL_DB_PASSWORD"));
+define('DB_DATABASE', getenv("OPENSHIFT_APP_NAME"));
+//define('DB_SERVER', 'localhost');
+//define('DB_USERNAME', 'root');
+//define('DB_PASSWORD', '');
+//define('DB_DATABASE', 'jobshadowing');
 
 define('ORG','org');
 define('ORG_ID','org.id');
