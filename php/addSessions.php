@@ -4,7 +4,7 @@ include './libs/fileOperations.php';
 
 $uploaded = "";
 
-if (!empty($_FILES["myfile"])) {
+if (!isset($_FILES["myfile"])) {
     $myFile = $_FILES["myfile"];
     $uploaded = uploadFile($myFile);
 } else {
