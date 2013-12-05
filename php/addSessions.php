@@ -2,7 +2,6 @@
 include_once './config.php';
 require ROOT_DIR . '/libs/fileOperations.php';
 $uploaded = "";
-var_dump($_FILES);
 
 if (!empty($_FILES["myfile"])) {
     $myFile = $_FILES["myfile"];
