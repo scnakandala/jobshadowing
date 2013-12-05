@@ -33,7 +33,8 @@ if (isset($_GET['m_id'])) {
                     fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
             </script>
-            <div class="fb-comments" data-href="http://localhost/jobshadowing/comments.php?m_id=<?php echo $com_id; ?>" data-numposts="10" data-colorscheme="light"></div>
+<!--            <div class="fb-comments" data-href="http://localhost/jobshadowing/comments.php?m_id=<?php echo $com_id; ?>" data-numposts="10" data-colorscheme="light"></div>-->
+            <div class="fb-comments" data-href="http://jobshadowing-scn.rhcloud.com/comments.php?m_id=<?php echo $com_id; ?>" data-numposts="10" data-colorscheme="light"></div>
         </div>
         <?php include './footer.php'; ?>
 
