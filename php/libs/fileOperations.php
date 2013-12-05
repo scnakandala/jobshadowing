@@ -37,7 +37,7 @@ function readExcelFile($filename) {
     try {
         $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
     } catch (Exception $e) {
-        return [];
+        return array();
     }
 
     $sheetData = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
