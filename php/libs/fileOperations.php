@@ -1,6 +1,5 @@
 <?php
 echo "Hello 1.2";
-exit;
 include ROOT_DIR . '/libs/classes/PHPExcel.php';
 echo "Hello 1.9";
 function uploadFile($myFile) {
