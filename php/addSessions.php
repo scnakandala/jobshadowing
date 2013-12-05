@@ -3,7 +3,7 @@ include_once './config.php';
 echo "Hello 1";
 require ROOT_DIR . '/libs/fileOperations.php';
 echo "Hello 2";
-exit;
+//exit;
 $uploaded = "";
 
 if (!isset($_FILES["myfile"])) {
