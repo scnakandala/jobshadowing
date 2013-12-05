@@ -1,10 +1,8 @@
 <?php
 include_once './config.php';
-echo "Hello 1";
 require ROOT_DIR . '/libs/fileOperations.php';
-echo "Hello 2";
-//exit;
 $uploaded = "";
+var_dump($_FILES);
 
 if (!isset($_FILES["myfile"])) {
     $myFile = $_FILES["myfile"];

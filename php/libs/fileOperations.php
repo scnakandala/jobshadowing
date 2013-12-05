@@ -1,7 +1,6 @@
 <?php
-echo "Hello 1.2";
 include ROOT_DIR . '/libs/classes/PHPExcel.php';
-echo "Hello 1.9";
+
 
 function uploadFile($myFile) {
     if ($myFile["error"] !== UPLOAD_ERR_OK) {
