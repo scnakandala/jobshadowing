@@ -66,4 +66,20 @@ $(document).ready(function()
 
         e.preventDefault();
     });
+//    $(document).on("click", ".comment-link", function(e) {
+//        $('#dialog-wait').dialog("open");
+//        $.ajax(
+//                {
+//                    url: $(this).attr("href"),
+//                    type: "GET",
+//                    success: function(data)
+//                    {
+//                        $("#tabs").hide();
+//                        $("#main-content").html(data);
+//                        $('#dialog-wait').dialog("close");
+//                    }
+//                });
+//
+//        e.preventDefault();
+//    });
 });

@@ -782,3 +782,11 @@ fieldset[disabled] .btn-link:focus {
     left:60%;				/* Please make note of the brackets here:
                                             (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
 }
+
+#mentor-comments{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#mentor-comments-header{
+    text-align: left;
+}

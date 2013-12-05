@@ -576,4 +576,19 @@ function updateRole($role_id, $role_name, $role_desc) {
     return $result;
 }
 
+function getMentorName($userID){
+    $sql = "select ".USER_NAME.",".USER_URL." from ".USER.",".ROLE." where ".
+            USER_ID."='".$userID."' and ".USER_ROLE."=".ROLE_ID." and ".
+            ROLE_NAME."!='Student'";
+    $result = mysql_query($sql);
+    $num_rows = mysql_num_rows($result);
+    if($num_rows == 0){
+        return array();
+    }
+    else{
+        $rows = mysql_fetch_array($result);
+        return array($rows['0'],$rows['1']);
+    }    
+}
+
 ?>

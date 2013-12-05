@@ -33,6 +33,7 @@ foreach ($mentors_list[1] as $user) {
                     } else {
                         print "<input type='button' id='btn_" . $user->id . "' value='Apply' class='applyBtn'>";
                     }
+                    print "<br/><a href='./comments.php?m_id=".$user->id."' class='comment-link'>View Comments</a>";
                     print "</form>";
                 }
                 ?>
