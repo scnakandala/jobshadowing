@@ -18,8 +18,12 @@ $loginUrl = $facebook->getLoginUrl(array(
     'scope' => 'email',
     'redirect_uri' => REDIRECT_URI
 ));
+if (isset(getenv("OPENSHIFT_MYSQL_DB_HOST"))) {
+    $logoutUrl = $facebook->getLogoutUrl(array( 'next' => 'http://jobshadowing-scn.rhcloud.com/logout.php' ));
+}else{
+    $logoutUrl = $facebook->getLogoutUrl(array( 'next' => 'http://jobshadowing/php/logout.php' ));
+}
 
-$logoutUrl = $facebook->getLogoutUrl(array( 'next' => 'http://jobshadowing-scn.rhcloud.com/logout.php' ));
 
 if($fbuser){
     try {
