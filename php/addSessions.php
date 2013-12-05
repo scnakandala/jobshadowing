@@ -1,10 +1,9 @@
 <?php
-echo "Hello orld";
+include_once './config.php';
 include './libs/fileOperations.php';
 
 $uploaded = "";
-echo "Hello orld";
-exit;
+
 if (!isset($_FILES["myfile"])) {
     $myFile = $_FILES["myfile"];
     $uploaded = uploadFile($myFile);

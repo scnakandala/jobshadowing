@@ -1,6 +1,4 @@
 <?php
-
-include_once '/../config.php';
 include ROOT_DIR . '/libs/classes/PHPExcel.php';
 
 function uploadFile($myFile) {
