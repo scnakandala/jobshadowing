@@ -3,7 +3,7 @@
 include './libs/fileOperations.php';
 
 $uploaded = "";
-var_dump($_FILES);
+echo "Hello orld";
 exit;
 if (!isset($_FILES["myfile"])) {
     $myFile = $_FILES["myfile"];
