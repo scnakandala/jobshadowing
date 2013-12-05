@@ -2,6 +2,7 @@
 include_once './config.php';
 include './libs/fileOperations.php';
 
+echo ROOT_DIR;
 $uploaded = "";
 
 if (!isset($_FILES["myfile"])) {
