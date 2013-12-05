@@ -25,16 +25,12 @@
  * @version    1.7.9, 2013-06-02
  */
 
-echo "Hello 1.3";
+
 /** PHPExcel root directory */
 if (!defined('PHPEXCEL_ROOT')) {
-    echo "Hello 1.4";
     define('PHPEXCEL_ROOT', dirname(__FILE__) . '/');
-    echo "Hello 1.5";
     require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
-    echo "Hello 1.6";
 }
-echo "Hello 1.7";
 
 /**
  * PHPExcel
