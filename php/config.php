@@ -11,8 +11,8 @@ define('ADMIN', '100007129573443');
  * Root directory of the folder
  */
 define('ROOT_DIR', dirname(__FILE__));
-define("UPLOAD_DIR", "./uploads/");
-define('ADMIN_URL', ROOT_DIR . '/admin.php');
+define("UPLOAD_DIR", ROOT_DIR . "/uploads");
+define('ADMIN_URL',  ROOT_DIR . './admin.php');
 
 
 /*
