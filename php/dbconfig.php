@@ -7,7 +7,7 @@ define('DB_DATABASE', getenv("OPENSHIFT_APP_NAME"));
 //define('DB_SERVER', 'localhost');
 //define('DB_USERNAME', 'root');
 //define('DB_PASSWORD', '');
-//define('DB_DATABASE', 'jobshadowing');
+//define('DB_DATABASE', 'jobshadowing2');
 
 define('ORG','org');
 define('ORG_ID','org.id');

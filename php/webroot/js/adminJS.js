@@ -3,7 +3,7 @@ $(document).ready(function()
     $("#progress").hide();
     $("#edit-role-btn").hide();
     getRoles();
-
+    
     function getRoles() {
         var formUrl = 'roleDesc.php';
         $.ajax(
@@ -13,6 +13,7 @@ $(document).ready(function()
                     data: "method=getRoles",
                     success: function(data, textStatus, jqXHR)
                     {
+                        console.log(data);
                         $('#role-names').html(data);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
@@ -55,11 +56,11 @@ $(document).ready(function()
             $("#message").html("");
             $("#message").html("Uploading file...");
         },
-        uploadProgress: function(event, position, total, percentComplete)
-        {
-            $("#bar").width(percentComplete + '%');
-            $("#percent").html(percentComplete + '%');
-        },
+//        uploadProgress: function(event, position, total, percentComplete)
+//        {
+//            $("#bar").width(percentComplete + '%');
+//            $("#percent").html(percentComplete + '%');
+//        },
         success: function()
         {
             $("#progress").hide();

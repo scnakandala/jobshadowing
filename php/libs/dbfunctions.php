@@ -6,6 +6,24 @@ if (!defined('JOBSHADOWING')) {
 }
 
 /**
+ * Function to get company list
+ * 
+ * return   array   an aray of (company id,company name)
+ */
+function getCompanies() {
+    $org_ids = array();
+    $sql = "select "
+            . ORG_ID . "," . ORG_NAME . " from " . ORG . " order by " . ORG_NAME;
+    $result = mysql_query($sql);
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($org_ids, array($row[0], $row[1]));
+    }
+
+    return $org_ids;
+}
+
+/**
  * Function to get mentors grouped by company
  * 
  * return   array   an aray of arrays containing mentors grouped by company
@@ -13,13 +31,7 @@ if (!defined('JOBSHADOWING')) {
  */
 function getMentorsByCompany() {
 
-    $sql = "select "
-            . ORG_ID . "," . ORG_NAME . " from " . ORG . " order by " . ORG_NAME;
-    $result = mysql_query($sql);
-    $org_ids = array();
-    while ($row = mysql_fetch_array($result)) {
-        array_push($org_ids, array($row[0], $row[1]));
-    }
+    $org_ids = getCompanies();
 
     $return_result = array();
 
@@ -76,6 +88,24 @@ function getMentorsOfCompany($company_id) {
 }
 
 /**
+ * Function to get roles list
+ * 
+ * return   array   an aray of (role id,role name)
+ */
+function getRoles() {
+    $role_ids = array();
+    $sql = "select "
+            . ROLE_ID . "," . ROLE_NAME . " from " . ROLE . " order by " . ROLE_NAME;
+    $result = mysql_query($sql);
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($role_ids, array($row[0], $row[1]));
+    }
+
+    return $role_ids;
+}
+
+/**
  * Function to get mentors grouped by role
  * 
  * return   array   an aray of arrays containing mentors grouped by job role
@@ -83,14 +113,7 @@ function getMentorsOfCompany($company_id) {
  */
 function getMentorsByRole() {
 
-    $sql = "select "
-            . ROLE_ID . "," . ROLE_NAME . " from " . ROLE . " order by " . ROLE_NAME;
-    $result = mysql_query($sql);
-    $role_ids = array();
-    while ($row = mysql_fetch_array($result)) {
-        array_push($role_ids, array($row[0], $row[1]));
-    }
-
+    $role_ids = getRoles();
     $return_result = array();
 
     foreach ($role_ids as $role) {
@@ -521,6 +544,36 @@ function getPendingRequests() {
     
     return $retArray;
     
+}
+
+/**
+ * Function to get the description of a job role
+ * @param type $role_id
+ * @return String
+ */
+function getRoleDescription($role_id) {
+    $sql = "select " . ROLE_DESC . " from " . ROLE . " where " . ROLE_ID . "=" . $role_id;
+    $result = mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    $desc = $row['0'];
+    return $desc;
+}
+
+/**
+ * Function to update a job role
+ * @param type $role_id
+ * @param type $role_name
+ * @param type $role_desc
+ * @return boolean
+ */
+function updateRole($role_id, $role_name, $role_desc) {
+    if (empty($role_name) || empty($role_desc)) {
+        return FALSE;
+    }
+    $sql = 'update ' . ROLE . " set " . ROLE_NAME . "='" . $role_name . "'," . ROLE_DESC . "='" . $role_desc .
+            "' where " . ROLE_ID . "='" . $role_id . "'";
+    $result = mysql_query($sql);
+    return $result;
 }
 
 ?>
