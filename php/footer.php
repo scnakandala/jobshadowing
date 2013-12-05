@@ -5,5 +5,6 @@ if (!defined('JOBSHADOWING')) {
 ?>
 <br/>
 <div id="copyright" style="padding-top: 10px;padding-bottom: 20px">
-    Copyrights @ <a>99XTechnology</a> 2013 
+    <hr/>
+    &COPY;2013 <a>99XTechnology</a> 
 </div>

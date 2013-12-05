@@ -1,101 +1,5 @@
-
-.avatar-change:hover {
-    background-color:#EEE;
-
-}
-.unanswered strong {
-    background:transparent;
-    color:#9A4444!important;
-
-}
-.post-tag.selected {
-    background-color:#c4dae9;
-
-}
-#newsletter-ad-header {
-    font-size:110%;
-    margin-top:70px !important;
-
-}
-.required-tag,.post-text .required-tag,.wmd-preview a.required-tag {
-    border:2px solid #979797;
-
-}
-.example-title-field {
-    width:590px;
-
-}
-.accordion-step {
-    width:100%;
-
-}
-.accordion-header {
-    border-style:solid;
-    border-width:1px;
-    padding:5px;
-    background-color:#EEE;
-    border-color:#E0E0E0;
-    margin-bottom:10px;
-
-}
-.accordion-header h2 span {
-    color:#888;
-
-}
-.question-autocomplete-holder {
-    padding-top:10px;
-
-}
-.auto-complete-question-tile {
-    border-bottom:1px solid #AAA;
-    padding-bottom:20px;
-    padding-top:20px;
-
-}
-#question-autocomplete-holder .auto-complete-question-tile:last-child {
-    border-bottom-style:none;
-
-}
-.take-answer {
-    font-size:120%;
-    font-weight:bold;
-    text-align:center;
-    margin-top:5px;
-    margin-bottom:5px;
-    padding-top:6px;
-    padding-bottom:7px;
-    color:#000;
-    background-color:#c0c0c0;
-    cursor:pointer;
-    width:150px;
-    border:1px solid #999;
-
-}
-.take-answer:hover {
-    background-color:#ff7a00;
-
-}
-.snippet-title {
-    color:black;
-
-}
-.example-tag-container {
-    border-style:solid;
-    border-width:1px;
-    border-color:black;
-
-}
-.auto-complete-question-tile-spacer {
-    border-top:1px dotted #BBB;
-    margin-top:15px;
-    margin-bottom:15px;
-
-}
-#footer.categories #footer-sites th {
-    color:#ccc;
-
-}
-#footer.categories #copyright {
+#copyright {
+    text-align: center;
     color:#ccc!important;
 
 }
@@ -109,52 +13,26 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 }
 body {
-    line-height:1;
-
+    line-height:1; 
+    background:#FFF;
+    color:#000;
+    font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
+    font-size:80%;
+    text-align:left;
 }
 ol,ul {
     list-style:none;
 
 }
-blockquote,q {
-    quotes:none;
 
-}
-blockquote:before,blockquote:after,q:before,q:after {
-    content:'';
-    content:none;
-
-}
-ins {
-    text-decoration:none;
-
-}
-del {
-    text-decoration:line-through;
-
-}
 table {
     border-collapse:collapse;
     border-spacing:0;
 
 }
-body {
-    background:#FFF;
-    color:#000;
-    font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;
-    font-size:80%;
-    text-align:center;
-
-}
-code {
-    font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    background-color:#eeeeee;
-
-}
 textarea {
     font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     border:1px solid #999;
-    font-size:90%;
 
 }
 .form-submit input:hover {
@@ -192,23 +70,10 @@ pre {
     width:650px !ie7;
     padding-bottom:20px !ie7;
     max-height:600px;
-
-}
-.post-text pre>code:first-child,.wmd-preview pre>code:first-child {
-    max-height:600px\9;
-    display:block\9;
-
-}
-pre {
     max-height:none\9;
 
 }
-blockquote {
-    margin-bottom:10px;
-    padding:10px 10px 1px 10px;
-    background-color:#eeeeee;
 
-}
 b,strong {
     font-weight:bold;
 
@@ -252,12 +117,6 @@ a:visited {
     color:#4a6b82;
 
 }
-.post-text h1,.wmd-preview h1 {
-    font-size:22px!important;
-    line-height:24px!important;
-    margin-bottom:10px!important;
-
-}
 h1 {
     font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
     font-weight:bold;
@@ -288,38 +147,6 @@ hr {
     background-color:#aaa;
     height:1px;
     margin-bottom:20px;
-
-}
-sup {
-    font-size:80%;
-    position:relative;
-    top:-0.4em;
-
-}
-sub {
-    position:relative;
-    top:0.3em;
-    font-size:80%;
-
-}
-kbd {
-    padding:0.1em 0.6em;
-    border:1px solid #ccc;
-    font-size:11px;
-    font-family:Arial,Helvetica,sans-serif;
-    background-color:#f7f7f7;
-    color:#333;
-    -moz-box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-    -webkit-box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-    box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
-    display:inline-block;
-    margin:0 0.1em;
-    text-shadow:0 1px 0 #fff;
-    line-height:1.4;
-    white-space:nowrap;
 
 }
 input[type=checkbox],input[type=radio] {
