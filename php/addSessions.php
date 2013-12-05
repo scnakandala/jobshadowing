@@ -1,7 +1,7 @@
 <?php
 include_once './config.php';
 echo "Hello 1";
-include './libs/fileOperations.php';
+include ROOT_DIR . '/libs/fileOperations.php';
 echo "Hello 2";
 exit;
 $uploaded = "";
