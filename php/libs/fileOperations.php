@@ -1,5 +1,5 @@
 <?php
-include ROOT_DIR . './libs/classes/PHPExcel.php';
+include './classes/PHPExcel.php';
 
 function uploadFile($myFile) {
     if ($myFile["error"] !== UPLOAD_ERR_OK) {

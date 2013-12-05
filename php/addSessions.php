@@ -1,13 +1,9 @@
 <?php
-
-
 include_once './config.php';
-echo "Hello 1-";
-echo ROOT_DIR;
+echo "Hello 1";
+include './libs/fileOperations.php';
 echo "Hello 2";
 exit;
-include './libs/fileOperations.php';
-
 $uploaded = "";
 
 if (!isset($_FILES["myfile"])) {
