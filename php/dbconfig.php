@@ -1,6 +1,6 @@
 <?php
 
-if (isset(getenv("OPENSHIFT_MYSQL_DB_HOST"))) {
+if (getenv("OPENSHIFT_MYSQL_DB_HOST")) {
     define('DB_SERVER', getenv("OPENSHIFT_MYSQL_DB_HOST") . ":" . getenv("OPENSHIFT_MYSQL_DB_PORT"));
     define('DB_USERNAME', getenv("OPENSHIFT_MYSQL_DB_USERNAME"));
     define('DB_PASSWORD', getenv("OPENSHIFT_MYSQL_DB_PASSWORD"));
@@ -9,7 +9,7 @@ if (isset(getenv("OPENSHIFT_MYSQL_DB_HOST"))) {
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');
-    define('DB_DATABASE', 'jobshadowing2');
+    define('DB_DATABASE', 'jobshadowing');
 }
 define('ORG', 'org');
 define('ORG_ID', 'org.id');
