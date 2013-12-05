@@ -56,11 +56,6 @@ $(document).ready(function()
             $("#message").html("");
             $("#message").html("Uploading file...");
         },
-//        uploadProgress: function(event, position, total, percentComplete)
-//        {
-//            $("#bar").width(percentComplete + '%');
-//            $("#percent").html(percentComplete + '%');
-//        },
         success: function()
         {
             $("#progress").hide();
@@ -77,29 +72,6 @@ $(document).ready(function()
         }
     }
     );
-
-    $(document).on("click", "#export-btn", function(e) {
-        e.preventDefault();
-        var formUrl = 'exportRequests.php';
-        $.ajax(
-                {
-                    url: formUrl,
-                    type: "POST",
-                    data: "",
-                    beforeSend: function()
-                    {
-                        $('#message2').html("Please wait...");
-                    },
-                    success: function(data, textStatus, jqXHR)
-                    {
-                        $('#message2').html(data);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown)
-                    {
-                    }
-                });
-
-    });
 
     $(document).on("click", "#edit-role-btn", function(e) {
         var id = $("#role-names").val();

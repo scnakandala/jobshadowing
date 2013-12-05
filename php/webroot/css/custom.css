@@ -466,10 +466,10 @@ fieldset[disabled] .btn-link:focus {
 }
 
 #role-desc{
-    width: 60%;
-    max-width: 60%;
+    width: 65%;
+    max-width: 65%;
     min-height: 30px;
-    border: #7d7b6d solid 1px;
+    border: #999 solid 1px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -493,6 +493,6 @@ fieldset[disabled] .btn-link:focus {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    padding: 10px;
+    padding: 2%;
     margin: 20px auto;
 }

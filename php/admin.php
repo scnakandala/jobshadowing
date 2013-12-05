@@ -27,8 +27,9 @@ include_once ROOT_DIR . '/checkAdmin.php';
     <p>
         You can export the pending requests to an excel sheet and download.
     </p>
-    <input type="button" id="export-btn" name="export-btn" value="Export Requests"/>
-    <div id="message2"></div>
+    <form id="export-form" method="post" action="exportRequests.php">
+        <input type="submit" id="export-btn" name="export-btn" value="Export & Download Requests"/>
+    </form>
 </div>
 <!--<hr>-->
 <div id="edit-descriptions" class="div-widgets">

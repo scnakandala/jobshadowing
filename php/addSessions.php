@@ -1,4 +1,5 @@
 <?php
+
 include_once './config.php';
 require ROOT_DIR . '/libs/fileOperations.php';
 $uploaded = "";
@@ -14,12 +15,12 @@ echo $uploaded . '<br/><br/>';
 
 if ($uploaded == "File Uploaded Successfully!") {
     echo '<pre>';
-    $read = readExcelFile(ROOT_DIR . '/uploads/sessions.xlsx');
+    $read = readExcelFile(UPLOAD_DIR . '/sessions.xlsx');
     if (count($read) == 0) {
         echo 'Invalid file content';
     } else {
         $results = addSessions($read);
-        foreach ($results as $r){
+        foreach ($results as $r) {
             echo $r;
         }
     }
