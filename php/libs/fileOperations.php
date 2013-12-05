@@ -30,19 +30,19 @@ function uploadFile($myFile) {
         return "File Uploaded Successfully!";
     }
 }
-//
-//function readExcelFile($filename) {
-//
-//    $inputFileName = $filename;  // File to read
-//    try {
-//        $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-//    } catch (Exception $e) {
-//        return [];
-//    }
-//
-//    $sheetData = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
-//    return $sheetData;
-//}
+
+function readExcelFile($filename) {
+
+    $inputFileName = $filename;  // File to read
+    try {
+        $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+    } catch (Exception $e) {
+        return [];
+    }
+
+    $sheetData = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+    return $sheetData;
+}
 //
 //function writeExcelFile($data) {
 //
