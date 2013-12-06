@@ -21,7 +21,7 @@ if (isset($_GET['m_id'])) {
         <?php include './navbar.php'; ?>
         <div id="mentor-comments">
             <div id="mentor-comments-header">
-                <?php print "<img src='https://graph.facebook.com/" . $mentor['1'] . "/picture'>" ?>
+                <?php print "<img src='https://graph.facebook.com/" . $mentor['1'] . "/picture?type=large'>" ?>
                 <h1><?php echo $mentor['0']; ?></h1>
             </div>
             <hr/>
