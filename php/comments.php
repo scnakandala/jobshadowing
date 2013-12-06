@@ -67,8 +67,8 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                 if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
                     ?>
                 </div>
-            </div
-<!--            <div style="display: none" id="dialog-wait" title="">
+            </div>
+            <!--            <div style="display: none" id="dialog-wait" title="">
                 <img src="./webroot/images/ajax-loader.gif"/>
             </div>-->
             <?php include './footer.php'; ?>
