@@ -515,7 +515,12 @@ function getMostFrequentCompanies($role_id) {
     return $companies;
 }
 
-function getPendingRequests() {
+/**
+ * Function to get a list of requests
+ * @param boolean $onlyNew if true only the ones with 'Pending' status will be exported
+ * @return String
+ */
+function getPendingRequests($onlyNew) {
     
     $retArray = array();
     $today = date("Y-m-d");
@@ -535,15 +540,36 @@ function getPendingRequests() {
             . " and ".SESSION_MENTOR."=M.id"
             . " and M.org=MO.id"
             . " and S.org=SO.id"
-            . " and ".SESSION_START.">'".$today."'";  
+            . " and ".SESSION_START.">'".$today."'"
+            . " and (".REQUEST_STATUS."='Pending'";  
+    
+    if(!$onlyNew){
+        $sql = $sql." or ".REQUEST_STATUS."='Submitted')";
+    }
+    else{
+        $sql = $sql.")";
+    }
 
     $result = mysql_query($sql);
     while($row = mysql_fetch_array($result)){
         array_push($retArray, $row);
     }
     
-    return $retArray;
-    
+    return $retArray;    
+}
+
+/**
+ * Function to change the status of a request
+ * @param type $request_id
+ * @param type $new_status
+ * @return String
+ */
+function changeRequestStatus($request_id, $new_status){
+    $sql = "update ".REQUEST.
+            " set ".REQUEST_STATUS."='".$new_status."'".
+            " where ".REQUEST_ID."='".$request_id."'";
+    $result = mysql_query($sql);
+    return $result;
 }
 
 /**

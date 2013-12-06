@@ -29,6 +29,8 @@ include_once ROOT_DIR . '/checkAdmin.php';
     </p>
     <form id="export-form" method="post" action="exportRequests.php">
         <input type="submit" id="export-btn" name="export-btn" value="Export & Download Requests"/>
+        <br/>         
+        <input type="checkbox" id="export-new" name="export-new" value="1"/>&ensp; New Requests since last export only
     </form>
 </div>
 <!--<hr>-->
