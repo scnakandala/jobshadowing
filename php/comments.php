@@ -68,9 +68,9 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                     ?>
                 </div>
             </div
-            <div style="display: none" id="dialog-wait" title="">
+<!--            <div style="display: none" id="dialog-wait" title="">
                 <img src="./webroot/images/ajax-loader.gif"/>
-            </div>
+            </div>-->
             <?php include './footer.php'; ?>
             <!--------js scripts------->    
             <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
