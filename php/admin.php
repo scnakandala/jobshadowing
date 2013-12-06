@@ -21,6 +21,21 @@ include_once ROOT_DIR . '/checkAdmin.php';
         <img src="./webroot/images/ajax-loader-bar.gif"/>
     </div>
 </div>
+<div id="update-request-status" class="div-widgets">
+    <h2>Update Request Status</h2><br>
+    <p>
+        The excel file should have a <b>.xlsx</b> extension. You can <a href="./downloads/templates/requests_template.xlsx">download a template from here</a>.
+    </p>
+    <form id="update-requests-form" action="updateRequests.php" method="post" enctype="multipart/form-data">
+        <input type="file" size="60" name="myfile2">
+        <input type="submit" value="Upload Excel File">
+    </form>
+    <div id="message2"></div>
+    <br/>
+    <div id="progress2">
+        <img src="./webroot/images/ajax-loader-bar.gif"/>
+    </div>
+</div>
 <!--<hr>-->
 <div id="get-requests" class="div-widgets">
     <h2>Export Pending Requests</h2><br>

@@ -350,45 +350,6 @@ function getAppliedSessionIds($userId) {
 }
 
 //var_dump(getAppliedSessions('27'));
-
-function addSessions($sheet) {
-
-    $retArray = array();
-
-    for ($i = 2; $i <= count($sheet); $i++) {
-        $row = $sheet[$i];
-
-        $org = $row['A'];
-        $org_url = $row['B'];
-        $mentor = $row['C'];
-        $role = $row['D'];
-        $fb = $row['E'];
-        $start = $row['F'];
-
-        if (empty($org) || empty($org_url) || empty($mentor) || empty($role) || empty($fb) || empty($start)) {
-            array_push($retArray, "Record has invalid values.");
-            continue;
-        }
-        $orgID = addOrganization($org, $org_url);
-        $roleID = addRole($role);
-        $mentID = addMentor($mentor, $fb, $orgID, $roleID);
-
-
-        if (($orgID == -1) || ($roleID == -1) || ($mentID == -1)) {
-            array_push($retArray, "Session adding failed.");
-        } else {
-            $added = addSession($mentID, $start);
-            if ($added) {
-                array_push($retArray, "Session by " . $mentor . " added.");
-            } else {
-                array_push($retArray, "Session adding failed.");
-            }
-        }
-    }
-
-    return $retArray;
-}
-
 function addSession($mentorID, $start) {
     $sql = "insert into " . SESSION . " ( " . SESSION_MENTOR . "," . SESSION_START . ") values ('" .
             $mentorID . "','" . $start . "')";
