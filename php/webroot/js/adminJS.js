@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
     $("#progress").hide();
+    $("#progress2").hide();
     $("#edit-role-btn").hide();
     getRoles();
     
@@ -68,6 +69,30 @@ $(document).ready(function()
         error: function()
         {
             $("#message").html("ERROR: unable to upload files");
+
+        }
+    }
+    );
+    
+    $("#update-requests-form").ajaxForm(options = {
+        beforeSend: function()
+        {
+            $("#progress2").show();
+            $("#message2").html("");
+            $("#message2").html("Uploading file...");
+        },
+        success: function()
+        {
+            $("#progress2").hide();
+        },
+        complete: function(response)
+        {
+            $("#message2").html(response.responseText);
+        },
+        error: function()
+        {
+            $("#progress2").hide();
+            $("#message2").html("ERROR: unable to upload files");
 
         }
     }
