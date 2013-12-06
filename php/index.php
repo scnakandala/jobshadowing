@@ -3,7 +3,11 @@
 include_once './config.php';
 ?>
 <html>
-    <?php include './html_header.php'; ?>
+    <head>
+        <meta name="og:title" content="Job Shadowing" />
+        <?php include './html_header.php'; ?>
+        <title>Job Shadowing</title>
+    </head>
     <body>       
         <?php include './navbar.php'; ?>
         <div style="display: none" id="fb-root"></div>             

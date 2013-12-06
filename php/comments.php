@@ -12,12 +12,16 @@ if (isset($_GET['m_id'])) {
 }
 ?>
 <html>
-    <?php include './html_header.php'; ?>
+    <head>
+        <meta name="og:title" content="Job Shadowing | <?php echo $mentor['0']; ?>" />
+        <?php include './html_header.php'; ?>
+        <title>Job Shadowing | <?php echo $mentor['0']; ?></title>
+    </head>
     <body>       
         <?php include './navbar.php'; ?>
         <div id="mentor-comments">
             <div id="mentor-comments-header">
-                 <?php print "<img src='https://graph.facebook.com/".$mentor['1']."/picture'>" ?>
+                <?php print "<img src='https://graph.facebook.com/" . $mentor['1'] . "/picture'>" ?>
                 <h1><?php echo $mentor['0']; ?></h1>
             </div>
             <hr/>
