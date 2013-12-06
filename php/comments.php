@@ -28,9 +28,6 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
             <div style="display: none" id="dialog-note" title="">
                 <p id="dialog-message"></p>
             </div>
-            <div style="display: none" id="dialog-wait" title="">
-                <img src="./webroot/images/ajax-loader.gif"/>
-            </div>
             <div id="content">                
                 <div style="display: none" id="tabs" class="subheader">
                     <?php include './index-tabs.php'; ?>
@@ -70,16 +67,20 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                 if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
                     ?>
                 </div>
-                <?php include './footer.php'; ?>
-                <!--------js scripts------->    
-                <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-                <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-                <script src="http://malsup.github.com/jquery.form.js"></script>
-                <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-                <script type="text/javascript" src="./webroot/js/fb-login.js"></script>
-                <script type="text/javascript" src="./webroot/js/navigation.js"></script>
-                <script type="text/javascript" src="./webroot/js/applyConfirm.js"></script>
-                <script type="text/javascript" src="./webroot/js/mentorList.js"></script>
+            </div
+            <div style="display: none" id="dialog-wait" title="">
+                <img src="./webroot/images/ajax-loader.gif"/>
+            </div>
+            <?php include './footer.php'; ?>
+            <!--------js scripts------->    
+            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="http://malsup.github.com/jquery.form.js"></script>
+            <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+            <script type="text/javascript" src="./webroot/js/fb-login.js"></script>
+            <script type="text/javascript" src="./webroot/js/navigation.js"></script>
+            <script type="text/javascript" src="./webroot/js/applyConfirm.js"></script>
+            <script type="text/javascript" src="./webroot/js/mentorList.js"></script>
         </body>
     </html>
     <?php
