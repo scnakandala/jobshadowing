@@ -45,9 +45,9 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                     <div style="display: none" id="fb-root"></div>
                     <?php
                     if (true || getenv("OPENSHIFT_APP_NAME")) {
-                        print '<div class="fb-comments" data-href="http://jobshadowing-scn.rhcloud.com/comments.php?m_id=' . $com_id . '; " data-numposts="10" data-colorscheme="light"></div>';
+                        print '<div class="fb-comments" data-href="http://jobshadowing-scn.rhcloud.com/comments.php?m_id=' . $com_id . ' " data-numposts="10" data-colorscheme="light"></div>';
                     } else {
-                        print '<div class="fb-comments" data-href="http://localhost/jobshadowing/php/comments.php?m_id=' . $com_id . '; " data-numposts="10" data-colorscheme="light"></div>';
+                        print '<div class="fb-comments" data-href="http://localhost/jobshadowing/php/comments.php?m_id=' . $com_id . ' " data-numposts="10" data-colorscheme="light"></div>';
                     }
                     ?>
                 </div>
