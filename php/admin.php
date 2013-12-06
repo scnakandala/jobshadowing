@@ -1,80 +1,62 @@
-<!DOCTYPE html>
 <?php
 include_once './config.php';
 include_once ROOT_DIR . '/checkAdmin.php';
+
+if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
+    ?>
+    <html>
+        <head>
+            <meta name="og:title" content="Job Shadowing" />
+            <?php include './html_header.php'; ?>
+            <title>Job Shadowing</title>
+        </head>
+        <body>       
+            <?php include './navbar.php'; ?>
+            <div style="display: none" id="fb-root"></div>             
+            <div style="display: none" id="dialog-confirm" title="Confirm application">
+                <p>Do you really want to apply for this session?</p>
+            </div>
+            <div style="display: none" id="dialog-note" title="">
+                <p id="dialog-message"></p>
+            </div>
+            <div style="display: none" id="dialog-wait" title="">
+                <img src="./webroot/images/ajax-loader.gif"/>
+            </div>
+            <div id="content">                
+                <div id="tabs" class="subheader">
+                    <?php include './index-tabs.php' ?>
+                </div>
+                <div id="main-content">
+                    <?php include './admin_html.php'; ?>
+                </div>
+            </div>
+            <?php include './footer.php'; ?>
+
+            <!--------js scripts------->    
+            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="http://malsup.github.com/jquery.form.js"></script>
+            <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+            <script type="text/javascript" src="./webroot/js/fb-login.js"></script>
+            <!--<script type="text/javascript" src="./webroot/js/navigation.js"></script>-->
+            <script type="text/javascript" src="./webroot/js/applyConfirm.js"></script>
+            <script type="text/javascript" src="./webroot/js/mentorList.js"></script>
+            <script>
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id))
+                        return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1411390219096779";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+
+        </body>
+    </html>
+    <?php
+} else {
+    include './admin_html.php';
+}
 ?>
-
-<h1>Welcome Administrator</h1>
-<hr>
-<div id="add-sessions" class="div-widgets">
-    <h2>Add Mentor Sessions</h2><br>
-    <p>
-        The excel file should have a <b>.xlsx</b> extension. You can <a href="./downloads/templates/sessions_template.xlsx">download a template from here</a>.
-    </p>
-    <form id="add-sessions-form" action="addSessions.php" method="post" enctype="multipart/form-data">
-        <input type="file" size="60" name="myfile">
-        <input type="submit" value="Upload Excel File">
-    </form>
-    <div id="message"></div>
-    <br/>
-    <div id="progress">
-        <img src="./webroot/images/ajax-loader-bar.gif"/>
-    </div>
-</div>
-<div id="update-request-status" class="div-widgets">
-    <h2>Update Request Status</h2><br>
-    <p>
-        The excel file should have a <b>.xlsx</b> extension. You can <a href="./downloads/templates/requests_template.xlsx">download a template from here</a>.
-    </p>
-    <form id="update-requests-form" action="updateRequests.php" method="post" enctype="multipart/form-data">
-        <input type="file" size="60" name="myfile2">
-        <input type="submit" value="Upload Excel File">
-    </form>
-    <div id="message2"></div>
-    <br/>
-    <div id="progress2">
-        <img src="./webroot/images/ajax-loader-bar.gif"/>
-    </div>
-</div>
-<!--<hr>-->
-<div id="get-requests" class="div-widgets">
-    <h2>Export Pending Requests</h2><br>
-    <p>
-        You can export the pending requests to an excel sheet and download.
-    </p>
-    <form id="export-form" method="post" action="exportRequests.php">
-        <input type="submit" id="export-btn" name="export-btn" value="Export & Download Requests"/>
-        <br/>         
-        <input type="checkbox" id="export-new" name="export-new" value="1"/>&ensp; New Requests since last export only
-    </form>
-</div>
-<!--<hr>-->
-<div id="edit-descriptions" class="div-widgets">
-    <h2>Edit Role Descriptions</h2><br>
-    <p>
-        You can view and edit role descriptions here.
-    </p>
-
-    <select id="role-names" name="role-names" size="5"></select>
-    <!--<br/><br/>-->
-    <div id="role-desc" name="role-desc">
-        <p id="role-desc-text"></p>
-        <!--<hr/>-->
-        <input type="button" id="edit-role-btn" name="edit-role-btn" value="edit"/>
-    </div>
-    <div style="display: none;text-align: left;" id="dialog-edit" title="Edit Role">
-        <p>
-            <label>Role ID:</label>
-            <b><label id="dialog-role-id"></label></b>
-            <br><br>
-            <label>Role Name:</label>
-            <br>
-            <input type="text" id="dialog-role-name" size="30" value=""/>
-            <br><br>
-            <label>Role Description:</label>            
-            <br>
-            <textarea id="dialog-role-desc" rows="5"></textarea>
-        </p>
-    </div>
-</div>
-<script type="text/javascript" src="./webroot/js/adminJS.js"></script>
