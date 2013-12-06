@@ -823,3 +823,9 @@ fieldset[disabled] .btn-link:focus {
 #mentor-comments-header{
     text-align: left;
 }
+
+#mentor-details-table td{
+    padding: 3px;
+    /*border: #000 solid 1px;*/
+    vertical-align: middle;
+}

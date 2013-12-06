@@ -451,7 +451,6 @@ function getMostFrequentJobRoles($org_id) {
     return $roles;
 }
 
-
 /**
  * Function to get the most frequent 3 companies of a job role
  * @param type $org_id
@@ -460,7 +459,7 @@ function getMostFrequentJobRoles($org_id) {
 function getMostFrequentCompanies($role_id) {
     $sql = "select " . ORG_NAME . ", count(*) as cnt from " . USER . "," . ROLE
             . "," . ORG . " where " . ROLE_ID . " = " . $role_id . " and " . USER_ORG . " = " . ORG_ID .
-            " and " . USER_ROLE . " = " . ROLE_ID . " and " . ORG_IS_UNI . " = 0" 
+            " and " . USER_ROLE . " = " . ROLE_ID . " and " . ORG_IS_UNI . " = 0"
             . " group by " . ORG_NAME . " order by  cnt desc";
     $result = mysql_query($sql);
     $companies = array();
@@ -482,10 +481,10 @@ function getMostFrequentCompanies($role_id) {
  * @return String
  */
 function getPendingRequests($onlyNew) {
-    
+
     $retArray = array();
     $today = date("Y-m-d");
-    
+
     $sql = "select " . REQUEST_ID . " as 'Request_ID',"
             . SESSION_ID . " as 'Session_ID',"
             . "S.id as 'S_ID',"
@@ -496,27 +495,26 @@ function getPendingRequests($onlyNew) {
             . "MO.name as 'M_Org',"
             . SESSION_START . " as 'Start_date' "
             . "from " . USER . " as S," . USER . " as M," . REQUEST . "," . SESSION . "," . ORG . " as SO, " . ORG . " as MO "
-            . "where ".REQUEST_SESSION."=".SESSION_ID
-            . " and ".REQUEST_USER."=S.id"
-            . " and ".SESSION_MENTOR."=M.id"
+            . "where " . REQUEST_SESSION . "=" . SESSION_ID
+            . " and " . REQUEST_USER . "=S.id"
+            . " and " . SESSION_MENTOR . "=M.id"
             . " and M.org=MO.id"
             . " and S.org=SO.id"
-            . " and ".SESSION_START.">'".$today."'"
-            . " and (".REQUEST_STATUS."='Pending'";  
-    
-    if(!$onlyNew){
-        $sql = $sql." or ".REQUEST_STATUS."='Submitted')";
-    }
-    else{
-        $sql = $sql.")";
+            . " and " . SESSION_START . ">'" . $today . "'"
+            . " and (" . REQUEST_STATUS . "='Pending'";
+
+    if (!$onlyNew) {
+        $sql = $sql . " or " . REQUEST_STATUS . "='Submitted')";
+    } else {
+        $sql = $sql . ")";
     }
 
     $result = mysql_query($sql);
-    while($row = mysql_fetch_array($result)){
+    while ($row = mysql_fetch_array($result)) {
         array_push($retArray, $row);
     }
-    
-    return $retArray;    
+
+    return $retArray;
 }
 
 /**
@@ -525,10 +523,10 @@ function getPendingRequests($onlyNew) {
  * @param type $new_status
  * @return String
  */
-function changeRequestStatus($request_id, $new_status){
-    $sql = "update ".REQUEST.
-            " set ".REQUEST_STATUS."='".$new_status."'".
-            " where ".REQUEST_ID."='".$request_id."'";
+function changeRequestStatus($request_id, $new_status) {
+    $sql = "update " . REQUEST .
+            " set " . REQUEST_STATUS . "='" . $new_status . "'" .
+            " where " . REQUEST_ID . "='" . $request_id . "'";
     $result = mysql_query($sql);
     return $result;
 }
@@ -563,18 +561,22 @@ function updateRole($role_id, $role_name, $role_desc) {
     return $result;
 }
 
-function getMentorName($userID){
-    $sql = "select ".USER_NAME.",".USER_URL." from ".USER.",".ROLE." where ".
-            USER_ID."='".$userID."' and ".USER_ROLE."=".ROLE_ID." and ".
-            ROLE_NAME."!='Student'";
+function getMentorDetails($userID) {
+    $sql = "select "
+            . USER_ID . "," . USER_NAME . "," . USER_URL . ","
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER
+            . "," . ROLE . "," . ORG . " where " . USER_ROLE . "="
+            . ROLE_ID . " and " . ORG_ID . " = " . USER_ORG . " and "
+            . ORG_IS_UNI . " = 0 and "
+            . USER_ID . " = " . $userID;
     $result = mysql_query($sql);
     $num_rows = mysql_num_rows($result);
-    if($num_rows == 0){
-        return array();
-    }
-    else{
-        $rows = mysql_fetch_array($result);
-        return array($rows['0'],$rows['1']);
+    if ($num_rows == 0) {
+        return "";
+    } else {
+        $row = mysql_fetch_array($result);
+        list($start, $sessionId) = getSession($userID);
+        return new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
     }    
 }
 

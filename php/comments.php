@@ -3,7 +3,7 @@
 include_once './config.php';
 if (isset($_GET['m_id'])) {
     $com_id = $_GET['m_id'];
-    $mentor = getMentorName($com_id);
+    $mentor = getMentorDetails($com_id);
     if (empty($mentor)) {
         header('Location: ./');
     }
@@ -14,10 +14,10 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
     ?>
     <html>
         <head>
-            <meta name="og:title" content="Job Shadowing | <?php echo $mentor['0']; ?>" />
+            <meta name="og:title" content="Job Shadowing | <?php echo $mentor->name; ?>" />
             <meta property="fb:app_id" content="<?php echo APP_ID; ?>"/>
             <?php include './html_header.php'; ?>
-            <title>Job Shadowing | <?php echo $mentor['0']; ?></title>
+            <title>Job Shadowing | <?php echo $mentor->name; ?></title>
         </head>
         <body>
             <?php include './navbar.php'; ?>
@@ -38,8 +38,44 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                 ?>
                 <div id="mentor-comments">
                     <div id="mentor-comments-header">
-                        <?php print "<img src='https://graph.facebook.com/" . $mentor['1'] . "/picture?type=large'>" ?>
-                        <h1><?php echo $mentor['0']; ?></h1>
+                        <table id="mentor-details-table">
+                            <tr>
+                                <td rowspan="4"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
+                                <td><h1><a href='http://www.facebook.com/<?php echo $mentor->url; ?>'><?php echo $mentor->name; ?></a></h1></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Description should go here -->
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php
+                                    if (!empty($mentor->start)) {
+                                        print '<b>Next Session starts on : </b>' . $mentor->start;
+                                    } else {
+                                        print '<b>No available sessions.</b>';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td>
+                                    <?php
+                                    if (!empty($mentor->start)) {
+                                        if (isset($_SESSION['LOGGED_IN']) && in_array($mentor->sessionId, getAppliedSessionIds(getUserId($userInfo['id'])))) {
+                                            print "<button type='button'>Applied</button>";
+                                        } else {
+                                            print "<input type='button' id='btn_" . $mentor->id . "' value='Apply' class='applyBtn'>";
+                                        }
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+
                     </div>
                     <hr/>
                     <div style="display: none" id="fb-root"></div>

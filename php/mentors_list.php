@@ -36,7 +36,7 @@ foreach ($mentors_lists as $mentors_list) {
                     </div>
                     <div>
                         <?php
-                        print "<h3><a href='http://www.facebook.com/$user->url' class='question-hyperlink' >$user->name</a></h3>";
+                        print "<h3><a href='./comments.php?m_id=".$user->id."' class='comment-link' >$user->name</a></h3>";
                         print "<h4>$user->role at <a href='$user->orgUrl'>$user->org</a></h4>";
                         if (!empty($user->start)) {
                             print "<form id='form_" . $user->id . "' class='applyForm' method='post' action='./applySession.php'>";
@@ -52,7 +52,6 @@ foreach ($mentors_lists as $mentors_list) {
                             } else {
                                 print "<input type='button' id='btn_" . $user->id . "' value='Apply' class='applyBtn'>";
                             }
-                            print "<br/><a href='./comments.php?m_id=".$user->id."' class='comment-link'>View Comments</a>";
                             print "</form>";
                         }
                         ?>
