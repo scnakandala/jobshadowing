@@ -28,6 +28,7 @@ define('REQUEST', 'request');
 define('REQUEST_ID', 'request.id');
 define('REQUEST_USER', 'request.user_id');
 define('REQUEST_SESSION', 'request.session_id');
+define('REQUEST_STATUS', 'request.status');
 
 define('ROLE', 'role');
 define('ROLE_ID', 'role.id');

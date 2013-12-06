@@ -5,7 +5,13 @@ include ROOT_DIR . '/libs/classes/PHPExcel.php';
 $dateString = date("Y_m_d");
 $filename = "Pending_Requests_" . $dateString . ".xlsx";
 
-$requests = getPendingRequests();
+if(isset($_POST['export-new'])){
+    $requests = getPendingRequests(TRUE);
+}
+else{
+    $requests = getPendingRequests(FALSE);
+}
+
 
 $objPHPExcel = new PHPExcel();
 // Set document properties
@@ -31,6 +37,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 //Add data
 for ($i = 0; $i < count($requests); $i++) {
+    
     $row = $i + 5;
     $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A' . $row, $requests[$i]['0'])
@@ -42,7 +49,9 @@ for ($i = 0; $i < count($requests); $i++) {
             ->setCellValue('G' . $row, $requests[$i]['6'])
             ->setCellValue('H' . $row, $requests[$i]['7'])
             ->setCellValue('I' . $row, $requests[$i]['8']);
+    $changed = changeRequestStatus($requests[$i]['0'],'Submitted');
 }
+
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle('Pending Requests ' . date("Y.m.d"));
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
