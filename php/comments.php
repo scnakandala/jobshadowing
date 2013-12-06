@@ -14,6 +14,7 @@ if (isset($_GET['m_id'])) {
 <html>
     <head>
         <meta name="og:title" content="Job Shadowing | <?php echo $mentor['0']; ?>" />
+        <meta property="fb:app_id" content="<?php echo APP_ID; ?>"/>
         <?php include './html_header.php'; ?>
         <title>Job Shadowing | <?php echo $mentor['0']; ?></title>
     </head>
