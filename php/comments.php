@@ -40,7 +40,7 @@ if (isset($_GET['m_id'])) {
                     <div id="mentor-comments-header">
                         <table id="mentor-details-table">
                             <tr>
-                                <td rowspan="5"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
+                                <td rowspan="6"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
                                 <td><h1><a href='http://www.facebook.com/<?php echo $mentor->url; ?>'><?php echo $mentor->name; ?></a></h1></td>
                             </tr>
                             <tr>
@@ -86,6 +86,7 @@ if (isset($_GET['m_id'])) {
                                     ?>
                                 </td>
                             </tr>
+                            <tr><td></td></tr>
                         </table>
                     </div>
                     <hr/>
