@@ -1,4 +1,3 @@
-
 $(function() {
     // jQuery UI Dialog   
 
@@ -11,8 +10,8 @@ $(function() {
         resizable: false,
         buttons: {
             "Yes": function() {
-                console.log("yes2");
                 $(this).dialog("close");
+                console.log("yes");
                 $('#dialog-wait').dialog("open");
                 $('#' + formId).submit();
             },
@@ -38,7 +37,8 @@ $(function() {
         resizable: false,
         buttons: {
             "OK": function() {
-                $(this).dialog("close");
+                location.reload(true);
+                $(this).dialog("close");               
             }
         },
         show: {
@@ -67,7 +67,7 @@ $(function() {
         }
     });
 
-    $(document).on("click", ".applyBtn", function(e) {
+    $(document).on("click", ".applyBtn2", function(e) {
         e.preventDefault();
         if ($("#fb-name").length > 0) {
             var btnId = this.id;
@@ -80,7 +80,7 @@ $(function() {
         }
     });
 
-    $(document).on("submit", ".applyForm", function(e) {
+    $(document).on("submit", ".applyForm2", function(e) {
         var postData = $(this).serializeArray();
         var formUrl = $(this).attr("action");
         $.ajax(
@@ -94,27 +94,6 @@ $(function() {
                         var result = eval(data);
                         setDialogContent('dialog-note', result[0], result[1]);
                         $('#dialog-note').dialog('open');
-                        if ($("#ordByComp").hasClass("youarehere")) {
-                            $.ajax({
-                                url: $('#ordByComp').attr("href"),
-                                type: "GET",
-                                data: {is_ajax: true},
-                                success: function(data)
-                                {
-                                    $("#main-content").html(data);
-                                }
-                            });
-                        } else {
-                            $.ajax({
-                                url: $('#ordByRole').attr("href"),
-                                type: "GET",
-                                data: {is_ajax: true},
-                                success: function(data)
-                                {
-                                    $("#main-content").html(data);
-                                }
-                            });
-                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
@@ -132,6 +111,9 @@ $(function() {
         $('#' + dialogId).html(contentVal);
     }
 });
+
+
+
 
 
 

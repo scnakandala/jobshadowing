@@ -10,28 +10,31 @@ if (isset($_GET['m_id'])) {
 } else {
     header('Location: ./');
 }
-if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
-    ?>
-    <html>
-        <head>
-            <meta name="og:title" content="Job Shadowing | <?php echo $mentor->name; ?>" />
-            <meta property="fb:app_id" content="<?php echo APP_ID; ?>"/>
-            <?php include './html_header.php'; ?>
-            <title>Job Shadowing | <?php echo $mentor->name; ?></title>
-        </head>
-        <body>
-            <?php include './navbar.php'; ?>
-            <div style="display: none" id="fb-root"></div>             
-            <div style="display: none" id="dialog-confirm" title="Confirm application">
-                <p>Do you really want to apply for this session?</p>
-            </div>
-            <div style="display: none" id="dialog-note" title="">
-                <p id="dialog-message"></p>
-            </div>
-            <div id="content">                
-                <div id="main-content">
-                    <?php
-                }
+//if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
+?>
+<html>
+    <head>
+        <meta name="og:title" content="Job Shadowing | <?php echo $mentor->name; ?>" />
+        <meta property="fb:app_id" content="<?php echo APP_ID; ?>"/>
+        <?php include './html_header.php'; ?>
+        <title>Job Shadowing | <?php echo $mentor->name; ?></title>
+    </head>
+    <body>
+        <?php include './navbar.php'; ?>
+        <div style="display: none" id="fb-root"></div>             
+        <div style="display: none" id="dialog-confirm" title="Confirm application2">
+            <p>Do you really want to apply for this session?</p>
+        </div>
+        <div style="display: none" id="dialog-note" title="">
+            <p id="dialog-message"></p>
+        </div>
+        <div style="display: none" id="dialog-wait" title="">
+            <p><b>Please wait...</b></p>
+        </div>
+        <div id="content">                
+            <div id="main-content">
+                <?php
+//                }
                 ?>
                 <div id="mentor-comments">
                     <div id="mentor-comments-header">
@@ -70,7 +73,14 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                                         if (isset($_SESSION['LOGGED_IN']) && in_array($mentor->sessionId, getAppliedSessionIds(getUserId($userInfo['id'])))) {
                                             print "<button type='button'>Applied</button>";
                                         } else {
-                                            print "<input type='button' id='btn_" . $mentor->id . "' value='Apply' class='applyBtn'>";
+                                            print "<form id='form_" . $mentor->id . "' class='applyForm2' method='post' action='./applySession.php'>";
+                                            print "<input type='hidden' name='mentor_id' id='mentor_id' value='" . $mentor->id . "' />";
+                                            print "<input type='hidden' name='session_id' id='session_id' value='" . $mentor->sessionId . "' />";
+                                            if ($fbuser) {
+                                                print "<input type='hidden' name='user_url' id='user_url' value='" . $userInfo['id'] . "' />";
+                                            }
+                                            print "<input type='button' id='btn_" . $mentor->id . "' value='Apply' class='applyBtn2'>";
+                                            print "</form>";
                                         }
                                     }
                                     ?>
@@ -105,24 +115,25 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                             delay: 250
                         }
                     });
-                </script>    
+                </script>
+                <script type="text/javascript" src="./webroot/js/comments.js"></script>
                 <?php
-                if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
-                    ?>
-                </div>
+//                if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {
+                ?>
             </div>
-            <?php include './footer.php'; ?>
-            <!--------js scripts------->    
-            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-            <script src="http://malsup.github.com/jquery.form.js"></script>
-            <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-            <script type="text/javascript" src="./webroot/js/fb-login.js"></script>
-            <script type="text/javascript" src="./webroot/js/navigation.js"></script>
-            <script type="text/javascript" src="./webroot/js/applyConfirm.js"></script>
-            <script type="text/javascript" src="./webroot/js/mentorList.js"></script>
-        </body>
-    </html>
-    <?php
-}
+        </div>
+        <?php include './footer.php'; ?>
+        <!--------js scripts------->    
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
+        <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+        <script type="text/javascript" src="./webroot/js/fb-login.js"></script>
+        <script type="text/javascript" src="./webroot/js/navigation.js"></script>
+        <!--<script type="text/javascript" src="./webroot/js/applyConfirm.js"></script>-->
+        <script type="text/javascript" src="./webroot/js/mentorList.js"></script>
+    </body>
+</html>
+<?php
+//}
 ?>
