@@ -109,12 +109,6 @@ if (isset($_GET['m_id'])) {
                         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1411390219096779";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
-                    $("#role-description-tooltip").tooltip({
-                        show: {
-                            effect: "slideDown",
-                            delay: 250
-                        }
-                    });
                 </script>
                 <script type="text/javascript" src="./webroot/js/comments.js"></script>
                 <?php

@@ -38,7 +38,7 @@ $(function() {
         buttons: {
             "OK": function() {
                 location.reload(true);
-                $(this).dialog("close");               
+                $(this).dialog("close");
             }
         },
         show: {
@@ -110,6 +110,14 @@ $(function() {
         $('#' + dialogId).dialog('option', 'title', titleVal);
         $('#' + dialogId).html(contentVal);
     }
+
+    $("#role-description-tooltip").tooltip({
+        show: {
+            effect: "slideDown",
+            delay: 250
+        },
+        track: true
+    });
 });
 
 
