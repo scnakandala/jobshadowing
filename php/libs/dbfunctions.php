@@ -39,7 +39,7 @@ function getMentorsByCompany() {
         $org_id = $org[0];
         $sql = "select "
                 . USER_ID . "," . USER_NAME . "," . USER_URL . ","
-                . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER
+                . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER
                 . "," . ROLE . "," . ORG . " where " . USER_ROLE . "="
                 . ROLE_ID . " and " . ORG_ID . " = " . USER_ORG . " and "
                 . ORG_IS_UNI . " = 0 and "
@@ -48,7 +48,7 @@ function getMentorsByCompany() {
         $mentors = array();
         while ($row = mysql_fetch_array($result)) {
             list($start, $sessionId) = getSession($row[0]);
-            $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
+            $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
             array_push($mentors, $mentor);
         }
         array_push($return_result, array($org, $mentors));
@@ -71,7 +71,7 @@ function getMentorsOfCompany($company_id) {
 
     $sql = "select "
             . USER_ID . "," . USER_NAME . "," . USER_URL . ","
-            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER
             . "," . ROLE . "," . ORG . " where " . USER_ROLE . "="
             . ROLE_ID . " and " . ORG_ID . " = " . USER_ORG . " and "
             . ORG_IS_UNI . " = 0 and "
@@ -80,7 +80,7 @@ function getMentorsOfCompany($company_id) {
     $mentors = array();
     while ($row = mysql_fetch_array($result)) {
         list($start, $sessionId) = getSession($row[0]);
-        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
+        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
         array_push($mentors, $mentor);
     }
 
@@ -123,7 +123,7 @@ function getMentorsByRole() {
         $role_id = $role[0];
         $sql = "select "
                 . USER_ID . "," . USER_NAME . "," . USER_URL . ","
-                . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER . "," . ROLE
+                . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER . "," . ROLE
                 . "," . ORG . " where " . USER_ROLE . "=" . ROLE_ID . " and "
                 . ORG_ID . " = " . USER_ORG . " and " . USER_ROLE . " = " . $role_id
                 . " order by " . USER_NAME;
@@ -131,7 +131,7 @@ function getMentorsByRole() {
         $mentors = array();
         while ($row = mysql_fetch_array($result)) {
             list($start, $sessionId) = getSession($row[0]);
-            $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
+            $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
             array_push($mentors, $mentor);
         }
         array_push($return_result, array($role, $mentors));
@@ -154,7 +154,7 @@ function getMentorsOfRole($role_id) {
 
     $sql = "select "
             . USER_ID . "," . USER_NAME . "," . USER_URL . ","
-            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER . "," . ROLE
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER . "," . ROLE
             . "," . ORG . " where " . USER_ROLE . "=" . ROLE_ID . " and "
             . ORG_ID . " = " . USER_ORG . " and " . USER_ROLE . " = " . $role_id
             . " order by " . USER_NAME;
@@ -162,7 +162,7 @@ function getMentorsOfRole($role_id) {
     $mentors = array();
     while ($row = mysql_fetch_array($result)) {
         list($start, $sessionId) = getSession($row[0]);
-        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
+        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
         array_push($mentors, $mentor);
     }
 
@@ -564,7 +564,7 @@ function updateRole($role_id, $role_name, $role_desc) {
 function getMentorDetails($userID) {
     $sql = "select "
             . USER_ID . "," . USER_NAME . "," . USER_URL . ","
-            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . " from " . USER
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER
             . "," . ROLE . "," . ORG . " where " . USER_ROLE . "="
             . ROLE_ID . " and " . ORG_ID . " = " . USER_ORG . " and "
             . ORG_IS_UNI . " = 0 and "
@@ -576,8 +576,8 @@ function getMentorDetails($userID) {
     } else {
         $row = mysql_fetch_array($result);
         list($start, $sessionId) = getSession($userID);
-        return new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId);
-    }    
+        return new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
+    }
 }
 
 ?>

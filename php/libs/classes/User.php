@@ -8,8 +8,9 @@ class User {
     var $orgUrl;
     var $start;
     var $sessionId;
+    var $roleDesc;
     
-    function __construct($id, $name, $url, $role, $org, $orgUrl, $start, $sessionId) {
+    function __construct($id, $name, $url, $role, $org, $orgUrl, $start, $sessionId, $roleDesc) {
         $this->id = $id;
         $this->name = $name;
         $this->url = $url;
@@ -18,6 +19,7 @@ class User {
         $this->orgUrl = $orgUrl;
         $this->start = $start;
         $this->sessionId = $sessionId;
+        $this->roleDesc = $roleDesc;
     }
     
     public function getSessionId() {
@@ -82,6 +84,14 @@ class User {
 
     public function setStart($start) {
         $this->start = $start;
+    }
+    
+    public function getRoleDesc() {
+        return $this->roleDesc;
+    }
+
+    public function setRoleDesc($roleDesc) {
+        $this->roleDesc = $roleDesc;
     }
 }
 ?>

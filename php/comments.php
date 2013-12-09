@@ -40,16 +40,21 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                     <div id="mentor-comments-header">
                         <table id="mentor-details-table">
                             <tr>
-                                <td rowspan="4"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
+                                <td rowspan="5"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
                                 <td><h1><a href='http://www.facebook.com/<?php echo $mentor->url; ?>'><?php echo $mentor->name; ?></a></h1></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <!-- Description should go here -->
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
-                                    <br/>
+                                    <a id="role-description-tooltip" href="" title="<?php echo $mentor->roleDesc; ?>">
+                                        <h2><?php echo $mentor->role; ?></h2>
+                                    </a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <h3><a href="<?php echo $mentor->orgUrl; ?>"><?php echo $mentor->org; ?></a></h3>
+                                </td>
+                            </tr>                            
                             <tr>
                                 <td>
                                     <?php
@@ -75,7 +80,6 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                                 </td>
                             </tr>
                         </table>
-
                     </div>
                     <hr/>
                     <div style="display: none" id="fb-root"></div>
@@ -98,6 +102,12 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1411390219096779";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
+                    $("#role-description-tooltip").tooltip({
+                        show: {
+                            effect: "slideDown",
+                            delay: 250
+                        }
+                    });
                 </script>    
                 <?php
                 if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == false)) {

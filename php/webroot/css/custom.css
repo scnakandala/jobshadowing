@@ -829,3 +829,8 @@ fieldset[disabled] .btn-link:focus {
     /*border: #000 solid 1px;*/
     vertical-align: middle;
 }
+
+.ui-tooltip{
+    font-size: 100%;
+    text-align: justify;
+}

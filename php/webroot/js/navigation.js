@@ -6,6 +6,7 @@ $(document).ready(function()
                 {
                     url: $(this).attr("href"),
                     type: "GET",
+                    data : { is_ajax : true },
                     success: function(data)
                     {
                         $("#tabs").show();
@@ -23,6 +24,7 @@ $(document).ready(function()
                 {
                     url: $(this).attr("href"),
                     type: "GET",
+                    data : { is_ajax : true },
                     success: function(data)
                     {
                         $("#tabs").hide();
@@ -40,6 +42,7 @@ $(document).ready(function()
                 {
                     url: $(this).attr("href"),
                     type: "GET",
+                    data : { is_ajax : true },
                     success: function(data)
                     {
                         $("#tabs").hide();
@@ -56,6 +59,7 @@ $(document).ready(function()
                 {
                     url: $(this).attr("href"),
                     type: "GET",
+                    data : { is_ajax : true },
                     success: function(data)
                     {
                         $("#tabs").hide();
