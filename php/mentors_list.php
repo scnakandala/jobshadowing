@@ -1,5 +1,15 @@
 <?php
-include_once './config.php';
+if(isset($_GET['is_ajax']) && $_GET['is_ajax']==true){
+    include_once './config.php';
+}
+
+if (!defined('JOBSHADOWING')) {
+    exit;
+}
+
+print '<div id="tabs" class="subheader">';
+include './index-tabs.php';
+print '</div>';
 
 $mentors_lists;
 if (!isset($_GET['order']) || $_GET['order'] == 'company') {
@@ -36,7 +46,7 @@ foreach ($mentors_lists as $mentors_list) {
                     </div>
                     <div>
                         <?php
-                        print "<h3><a href='./comments.php?m_id=".$user->id."' class='comment-link' >$user->name</a></h3>";
+                        print "<h3><a href='./comments.php?m_id=" . $user->id . "' class='comment-link' >$user->name</a></h3>";
                         print "<h4>$user->role at <a href='$user->orgUrl'>$user->org</a></h4>";
                         if (!empty($user->start)) {
                             print "<form id='form_" . $user->id . "' class='applyForm' method='post' action='./applySession.php'>";
@@ -46,7 +56,7 @@ foreach ($mentors_lists as $mentors_list) {
                             if ($fbuser) {
                                 print "<input type='hidden' name='user_url' id='user_url' value='" . $userInfo['id'] . "' />";
                             }
-                            
+
                             if (isset($_SESSION['LOGGED_IN']) && in_array($user->sessionId, getAppliedSessionIds(getUserId($userInfo['id'])))) {
                                 print "<button type='button'>Applied</button>";
                             } else {

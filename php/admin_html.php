@@ -1,4 +1,8 @@
-
+<?php
+if (!defined('JOBSHADOWING')) {
+    exit;
+}
+?>
 <h1>Welcome Administrator</h1>
 <hr>
 <div id="add-sessions" class="div-widgets">

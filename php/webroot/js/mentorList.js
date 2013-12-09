@@ -1,12 +1,13 @@
 // A $( document ).ready() block.
 $(document).ready(function() {
-    $("#ordByComp").click(function(e) {
+    $(document).on("click", "#ordByComp", function(e) {
         e.preventDefault();
         var formUrl = $(this).attr("href");
         $('#dialog-wait').dialog("open");
         $.ajax({
             url: formUrl,
             type: "GET",
+            data : { is_ajax : true },
             success: function(data)
             {
                 $("#main-content").html(data);
@@ -17,13 +18,14 @@ $(document).ready(function() {
         });
     });
 
-    $("#ordByRole").click(function(e) {
+    $(document).on("click", "#ordByRole", function(e) {
         e.preventDefault();
         var formUrl = $(this).attr("href");
         $('#dialog-wait').dialog("open");
         $.ajax({
             url: formUrl,
             type: "GET",
+            data : { is_ajax : true },
             success: function(data)
             {
                 $("#main-content").html(data);
@@ -41,6 +43,7 @@ $(document).ready(function() {
         $.ajax({
             url: formUrl,
             type: "GET",
+            data : { is_ajax : true },
             success: function(data)
             {
                 $("#main-content").html(data);

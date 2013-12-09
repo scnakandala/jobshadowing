@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
 include_once './config.php';
+
+if( isset($_GET['is_ajax']) && $_GET['is_ajax']==true){
+    include './mentors_list.php';
+    exit;
+}
+
 ?>
 <html>
     <head>
@@ -26,9 +32,6 @@ include_once './config.php';
                 $_SESSION['FROM_INDEX'] = true;
                 include './select_uni.php';
             } else {
-                print '<div id="tabs" class="subheader">';
-                include './index-tabs.php';
-                print '</div>';
                 print '<div id="main-content">';
                 include './mentors_list.php';
                 print '</div>';

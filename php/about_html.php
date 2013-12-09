@@ -1,3 +1,8 @@
+<?php
+if (!defined('JOBSHADOWING')) {
+    exit;
+}
+?>
 <div class="container">
     <br />
     <div class="row">

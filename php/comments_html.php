@@ -1,3 +1,8 @@
+<?php
+if (!defined('JOBSHADOWING')) {
+    exit;
+}
+?>
 <div id="mentor-comments">
     <div id="mentor-comments-header">
         <?php print "<img src='https://graph.facebook.com/" . $mentor['1'] . "/picture?type=large'>" ?>

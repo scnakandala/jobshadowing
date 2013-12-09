@@ -1,3 +1,8 @@
+<?php
+if (!defined('JOBSHADOWING')) {
+    exit;
+}
+?>
 <h2>Contact Us</h2>
 <p>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem 

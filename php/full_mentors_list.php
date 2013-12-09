@@ -1,5 +1,14 @@
 <?php
+if(!isset($_GET['is_ajax']) && $_GET['is_ajax'] === false){
+    exit;
+}
+
+
 include_once './config.php';
+
+print '<div id="tabs" class="subheader">';
+include './index-tabs.php';
+print '</div>';
 
 if (isset($_GET['company'])) {
     $mentors_list = getMentorsOfCompany($_GET['company']);
