@@ -71,21 +71,21 @@ $(document).ready(function()
 //        e.preventDefault();
 //    });
     
-    $(document).on("click", ".comment-link", function(e) {
-        $('#dialog-wait').dialog("open");
-        $.ajax(
-                {
-                    url: $(this).attr("href"),
-                    type: "GET",
-                    data : { is_ajax : true },
-                    success: function(data)
-                    {
-                        $("#tabs").hide();
-                        $("#main-content").html(data);
-                        $('#dialog-wait').dialog("close");
-                    }
-                });
-
-        e.preventDefault();
-    });
+//    $(document).on("click", ".comment-link", function(e) {
+//        $('#dialog-wait').dialog("open");
+//        $.ajax(
+//                {
+//                    url: $(this).attr("href"),
+//                    type: "GET",
+//                    data : { is_ajax : true },
+//                    success: function(data)
+//                    {
+//                        $("#tabs").hide();
+//                        $("#main-content").html(data);
+//                        $('#dialog-wait').dialog("close");
+//                    }
+//                });
+//
+//        e.preventDefault();
+//    });
 });

@@ -23,9 +23,6 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                 <img src="./webroot/images/ajax-loader.gif"/>
             </div>
             <div id="content">                
-                <div id="tabs" class="subheader">
-                    <?php include './index-tabs.php' ?>
-                </div>
                 <div id="main-content">
                     <?php include './admin_html.php'; ?>
                 </div>
