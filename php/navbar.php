@@ -6,7 +6,7 @@ if (!defined('JOBSHADOWING')) {
 <div class="my-navbar" role="navigation">    
     <div class="my-navbar-header">            
         <ul class="my-nav-links">
-            <li><a id="home-nav" href="./mentors_list.php?order=company">Job Shadowing</a></li>
+            <li><a id="home-nav" href="./index.php">Job Shadowing</a></li>
             <li><a id="about-nav" href="./about.php">What is Job Shadowing?</a></li>
             <li><a id="contact-nav" href="./contact.php">Contact Us</a></li>
             <?php
