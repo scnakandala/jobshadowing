@@ -97,6 +97,7 @@ $(function() {
                             $.ajax({
                                 url: $('#ordByComp').attr("href"),
                                 type: "GET",
+                                data: {is_ajax: true},
                                 success: function(data)
                                 {
                                     $("#main-content").html(data);
@@ -106,6 +107,7 @@ $(function() {
                             $.ajax({
                                 url: $('#ordByRole').attr("href"),
                                 type: "GET",
+                                data: {is_ajax: true},
                                 success: function(data)
                                 {
                                     $("#main-content").html(data);
