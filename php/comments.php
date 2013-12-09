@@ -29,9 +29,6 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
                 <p id="dialog-message"></p>
             </div>
             <div id="content">                
-                <div style="display: none" id="tabs" class="subheader">
-                    <?php include './index-tabs.php'; ?>
-                </div>
                 <div id="main-content">
                     <?php
                 }
