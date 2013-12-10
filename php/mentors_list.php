@@ -21,8 +21,10 @@ if (!isset($_GET['order']) || $_GET['order'] == 'company') {
 }
 
 $max_mentors_per_list = 5;
-
+$count=0;
 foreach ($mentors_lists as $mentors_list) {
+    $count++;
+    
     if (empty($mentors_list[1])) {
         continue;
     }
@@ -35,7 +37,7 @@ foreach ($mentors_lists as $mentors_list) {
 
     <legend style='padding-top: 20px'><h3><?php print($mentors_list[0][1] . $ending_s) ?></h3></legend>
     <div style="border: 2px solid black;width: 100%; float:left">
-        <div style="position: initial;padding: 5px;float: left; width:30%">
+        <div id="<?php print($count . "_mentorList") ?>" style="position: initial;padding: 5px;float: left; width:30%">
             <?php
             for ($i = 0; $i < min(count($mentors_list[1]), $max_mentors_per_list); $i++) {
                 $user = $mentors_list[1][$i];
@@ -72,7 +74,8 @@ foreach ($mentors_lists as $mentors_list) {
             if (count($mentors_list[1]) > $max_mentors_per_list) {
                 print '<div style="padding:5px">';
                 print (count($mentors_list[1]) - $max_mentors_per_list) . " more mentors ";
-                print "<a name='see_more' class='see_more_button' href='./full_mentors_list.php/?" . (isset($_GET['order']) && $_GET['order'] == 'role' ? "role=" : "company=")
+                $id = $count . '_seeMore';
+                print "<a name='see_more' id='$id') class='see_more_button' href='./full_mentors_list.php/?" . (isset($_GET['order']) && $_GET['order'] == 'role' ? "role=" : "company=")
                         . $mentors_list[0][0] . "'> see all </a>";
                 print '</div>';
             }
