@@ -7,7 +7,7 @@ $(document).ready(function() {
         $.ajax({
             url: formUrl,
             type: "GET",
-            data : { is_ajax : true },
+            data: {is_ajax: true},
             success: function(data)
             {
                 $("#main-content").html(data);
@@ -25,7 +25,7 @@ $(document).ready(function() {
         $.ajax({
             url: formUrl,
             type: "GET",
-            data : { is_ajax : true },
+            data: {is_ajax: true},
             success: function(data)
             {
                 $("#main-content").html(data);
@@ -39,20 +39,23 @@ $(document).ready(function() {
     $(document).on("click", "a.see_more_button", function(e) {
         e.preventDefault();
         var formUrl = $(this).attr("href");
+        var id = $(this).attr("id");
         $('#dialog-wait').dialog("open");
         $.ajax({
             url: formUrl,
             type: "GET",
-            data : { is_ajax : true },
+            data: {is_ajax: true},
             success: function(data)
             {
-                $("#main-content").html(data);
+                id = id.split('_')[0];
+                id = "#" + id + "_mentorList";
+                $(id).html(data);
                 $("#ordByRole").removeClass("youarehere");
                 $("#ordByComp").removeClass("youarehere");
                 $('#dialog-wait').dialog("close");
             }
         });
-    });    
+    });
 });
 
 
