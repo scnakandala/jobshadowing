@@ -721,12 +721,12 @@ fieldset[disabled] .btn-link:focus {
     top:3px; 
     left:48%; 
 }*/
-#role-names{
+#role-names, #company-names{
     max-width: 30%;
     display: inline-block;
 }
 
-#role-desc{
+#role-desc, #company-desc{
     width: 65%;
     max-width: 65%;
     min-height: 30px;
@@ -740,11 +740,11 @@ fieldset[disabled] .btn-link:focus {
     margin-left: 20px;
 }
 
-#edit-role-btn{
+#edit-role-btn, #edit-company-btn{
     float: right;
 }
 
-#dialog-role-desc{
+#dialog-role-desc, #dialog-company-desc, #dialog-company-url {
     width: 90%;
     margin-top: 3px;
 }

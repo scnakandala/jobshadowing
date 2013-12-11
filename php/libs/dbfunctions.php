@@ -13,7 +13,7 @@ if (!defined('JOBSHADOWING')) {
 function getCompanies() {
     $org_ids = array();
     $sql = "select "
-            . ORG_ID . "," . ORG_NAME . " from " . ORG . " order by " . ORG_NAME;
+            . ORG_ID . "," . ORG_NAME . " from " . ORG . " where " . ORG_IS_UNI . "='0' order by " . ORG_NAME;
     $result = mysql_query($sql);
 
     while ($row = mysql_fetch_array($result)) {
@@ -358,15 +358,14 @@ function addSession($mentorID, $start) {
 }
 
 function addOrganization($name, $url) {
-    $uni = 0;
     $sql = "select " . ORG_ID . " from " . ORG . " where " . ORG_NAME . " = '" . $name . "'";
     $result = mysql_query($sql);
     if (mysql_num_rows($result) > 0) {
         $row = mysql_fetch_array($result);
         return $row['0'];
     } else {
-        $sql = "insert into " . ORG . " (" . ORG_NAME . "," . ORG_URL . "," . ORG_IS_UNI . ") values ('" .
-                $name . "','" . $url . "','" . $uni . "')";
+        $sql = "insert into " . ORG . " (" . ORG_NAME . "," . ORG_URL . "," . ORG_DESC . ") values ('" .
+                $name . "','" . $url . "','No description found.')";
         $result = mysql_query($sql);
         if ($result) {
             $sql = "select " . ORG_ID . " from " . ORG . " where " . ORG_NAME . " = '" . $name . "'";
@@ -557,6 +556,36 @@ function updateRole($role_id, $role_name, $role_desc) {
     }
     $sql = 'update ' . ROLE . " set " . ROLE_NAME . "='" . $role_name . "'," . ROLE_DESC . "='" . $role_desc .
             "' where " . ROLE_ID . "='" . $role_id . "'";
+    $result = mysql_query($sql);
+    return $result;
+}
+
+/**
+ * Function to get the description of an organization
+ * @param type $org_id
+ * @return String
+ */
+function getOrgDescription($org_id) {
+    $sql = "select " . ORG_DESC . " from " . ORG . " where " . ORG_ID . "=" . $org_id;
+    $result = mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    $desc = $row['0'];
+    return $desc;
+}
+
+/**
+ * Function to update a organization
+ * @param type $org_id
+ * @param type $org_name
+ * @param type $org_desc
+ * @return boolean
+ */
+function updateOrg($org_id, $org_name, $org_desc) {
+    if (empty($org_name) || empty($org_desc)) {
+        return FALSE;
+    }
+    $sql = 'update ' . ORG . " set " . ORG_NAME . "='" . $org_name . "'," . ORG_DESC . "='" . $org_desc .
+            "' where " . ORG_ID . "='" . $org_id . "'";
     $result = mysql_query($sql);
     return $result;
 }

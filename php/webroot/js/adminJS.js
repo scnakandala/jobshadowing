@@ -3,7 +3,9 @@ $(document).ready(function()
     $("#progress").hide();
     $("#progress2").hide();
     $("#edit-role-btn").hide();
+    $("#edit-company-btn").hide();
     getRoles();
+    getCompanies();
     
     function getRoles() {
         var formUrl = 'roleDesc.php';
@@ -14,7 +16,6 @@ $(document).ready(function()
                     data: "method=getRoles",
                     success: function(data, textStatus, jqXHR)
                     {
-                        console.log(data);
                         $('#role-names').html(data);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
@@ -23,7 +24,7 @@ $(document).ready(function()
                     }
                 });
     }
-
+    
     $(document).on("change", "#role-names", function(e) {
         var id = $("#role-names").val();
         var formUrl = 'roleDesc.php';
@@ -65,6 +66,7 @@ $(document).ready(function()
         {
             $("#message").html(response.responseText);
             getRoles();
+            getCompanies();
         },
         error: function()
         {
@@ -152,7 +154,6 @@ $(document).ready(function()
                     success: function(data, textStatus, jqXHR)
                     {
                         $('#dialog-wait').dialog("close");
-                        console.log(textStatus);
                         $('#dialog-note').dialog('option', 'title', "Update Status");
                         $('#dialog-note').html(data);
                         $('#dialog-note').dialog('open');
@@ -164,6 +165,119 @@ $(document).ready(function()
                     }
                 });
                 getRoles();
+    }
+    
+    function getCompanies() {
+        console.log("get companies");
+        var formUrl = 'companyDesc.php';
+        $.ajax(
+                {
+                    url: formUrl,
+                    type: "POST",
+                    data: "method=getCompanies",
+                    success: function(data, textStatus, jqXHR)
+                    {
+//                        console.log(data);
+                        $('#company-names').html(data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        console.log(textStatus);
+                    }
+                });
+    }
+    
+    $(document).on("change", "#company-names", function(e) {
+        var id = $("#company-names").val();
+        var formUrl = 'companyDesc.php';
+        $.ajax(
+                {
+                    url: formUrl,
+                    type: "POST",
+                    data: "method=getDescription&company_id=" + id,
+                    beforeSend: function()
+                    {
+                        $("#edit-company-btn").hide();
+                        $('#company-desc-text').html("Please wait...");
+                    },
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        $('#company-desc-text').html(data);
+                        $("#edit-company-btn").show();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        console.log(textStatus);
+                    }
+                });
+
+    });
+    
+    $(document).on("click", "#edit-company-btn", function(e) {
+        var id = $("#company-names").val();
+        var name = $("#company-names option:selected").text();
+        var desc = $('#company-desc-text').html();
+
+        $("#dialog-company-id").html(id);        
+        $("#dialog-company-name").attr('value', name);
+        $('#dialog-company-desc').val(desc.trim());
+        $("#dialog-edit-company").dialog('open');
+    });
+
+    $('#dialog-edit-company').dialog({
+        autoOpen: false,
+        width: 600,
+        modal: true,
+        resizable: false,
+        buttons: {
+            "Save": function() {
+                $(this).dialog("close");
+                updateCompany();
+            },
+            "Cancel": function() {
+                $(this).dialog("close");
+            }
+        },
+        show: {
+            effect: "fade",
+            duration: 200
+        },
+        hide: {
+            effect: "fade",
+            duration: 200
+        }
+
+    });
+
+    function updateCompany() {
+        var formUrl = 'companyDesc.php';
+        var id = $("#dialog-company-id").html();
+        var name = $("#dialog-company-name").val();
+        var desc = $('#dialog-company-desc').val();
+//        console.log(id+"::"+name+"::"+desc);
+        $.ajax(
+                {
+                    url: formUrl,
+                    type: "POST",
+                    data: "method=updateCompanyData&org_id=" + id + "&org_name=" + name + "&org_desc=" + desc,
+                    beforeSend: function()
+                    {
+                        $('#dialog-wait').dialog("open");
+                    },
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        $('#dialog-wait').dialog("close");
+                        $('#dialog-note').dialog('option', 'title', "Update Status");
+                        $('#dialog-note').html(data);
+                        $('#dialog-note').dialog('open');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        $('#dialog-wait').dialog("open");
+                        console.log(textStatus);
+                    }
+                });
+                getCompanies();
     }
 
 });

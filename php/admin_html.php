@@ -76,5 +76,32 @@ if (!defined('JOBSHADOWING')) {
         </p>
     </div>
 </div>
+
+<div id="edit-company" class="div-widgets">
+    <h2>Edit Company Descriptions</h2><br>
+    <p>
+        You can view and edit company descriptions here.
+    </p>
+
+    <select id="company-names" name="company-names" size="5"></select>
+    <div id="company-desc" name="company-desc">
+        <p id="company-desc-text"></p>
+        <input type="button" id="edit-company-btn" name="edit-company-btn" value="edit"/>
+    </div>
+    <div style="display: none;text-align: left;" id="dialog-edit-company" title="Edit Company">
+        <p>
+            <label>Company ID:</label>
+            <b><label id="dialog-company-id"></label></b>
+            <br><br>
+            <label>Company Name:</label>
+            <br>
+            <input type="text" id="dialog-company-name" size="30" value=""/>
+            <br><br>
+            <label>Company Description:</label>            
+            <br>
+            <textarea id="dialog-company-desc" rows="5"></textarea>
+        </p>
+    </div>
+</div> 
 <script type="text/javascript" src="./webroot/js/adminJS.js"></script>
 

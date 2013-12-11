@@ -15,6 +15,7 @@ define('ORG', 'org');
 define('ORG_ID', 'org.id');
 define('ORG_NAME', 'org.name');
 define('ORG_URL', 'org.url');
+define('ORG_DESC', 'org.description');
 define('ORG_IS_UNI', 'org.is_university');
 
 define('USER', 'user');
