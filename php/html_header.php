@@ -1,7 +1,8 @@
 <!--<head>-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">      
-    <link rel="stylesheet" type="text/css" href="./webroot/css/custom.css">
+    <link rel="stylesheet" href="./webroot/css/mainStyle.css">      
+    <!--<link rel="stylesheet" type="text/css" href="./webroot/css/custom.css">-->
     <script type="text/javascript">
         if (window.location.hash && window.location.hash == '#_=_') {
             window.location.hash = '';

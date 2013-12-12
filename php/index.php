@@ -2,11 +2,10 @@
 <?php
 include_once './config.php';
 
-if( isset($_GET['is_ajax']) && $_GET['is_ajax']==true){
+if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
     include './mentors_list.php';
     exit;
 }
-
 ?>
 <html>
     <head>
@@ -16,16 +15,16 @@ if( isset($_GET['is_ajax']) && $_GET['is_ajax']==true){
     </head>
     <body>       
         <?php include './navbar.php'; ?>
-        <div style="display: none" id="fb-root"></div>             
-        <div style="display: none" id="dialog-confirm" title="Confirm application">
-            <p>Do you really want to apply for this session?</p>
-        </div>
-        <div style="display: none" id="dialog-note" title="">
-            <p id="dialog-message"></p>
-        </div>
-        <div style="display: none" id="dialog-wait" title="">
-            <img src="./webroot/images/ajax-loader.gif"/>
-        </div>
+        <!--        <div style="display: none" id="fb-root"></div>             
+                <div style="display: none" id="dialog-confirm" title="Confirm application">
+                    <p>Do you really want to apply for this session?</p>
+                </div>
+                <div style="display: none" id="dialog-note" title="">
+                    <p id="dialog-message"></p>
+                </div>
+                <div style="display: none" id="dialog-wait" title="">
+                    <img src="./webroot/images/ajax-loader.gif"/>
+                </div>-->
         <div id="content">                
             <?php
             if (isset($_GET['code'])) {
@@ -37,9 +36,8 @@ if( isset($_GET['is_ajax']) && $_GET['is_ajax']==true){
                 print '</div>';
             }
             ?>
-        </div>
+        </div>            
         <?php include './footer.php'; ?>
-
         <!--------js scripts------->    
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

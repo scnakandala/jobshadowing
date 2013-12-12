@@ -9,7 +9,7 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
             <?php include './html_header.php'; ?>
             <title>Job Shadowing</title>
         </head>
-        <body>       
+        <body>  
             <?php include './navbar.php'; ?>
             <div style="display: none" id="fb-root"></div>             
             <div style="display: none" id="dialog-confirm" title="Confirm application">
@@ -23,11 +23,10 @@ if (!isset($_GET['is_ajax']) || (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 
             </div>
             <div id="content">    
                 <div id="main-content">
-                    <?php include './contact_html.php';?>
+                    <?php include './contact_html.php'; ?>
                 </div>
-            </div>
+            </div> 
             <?php include './footer.php'; ?>
-
             <!--------js scripts------->    
             <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
             <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

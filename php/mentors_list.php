@@ -36,7 +36,7 @@ foreach ($mentors_lists as $mentors_list) {
     ?>    
 
     <legend style='padding-top: 20px'><h3><?php print($mentors_list[0][1] . $ending_s) ?></h3></legend>
-    <div style="border: 2px solid black;width: 100%; float:left">
+    <div style="border: 2px solid black;width: 100%; float:left; margin-bottom: 20px;">
         <div id="<?php print($count . "_mentorList") ?>" style="position: initial;padding: 5px;float: left; width:30%">
             <?php
             for ($i = 0; $i < min(count($mentors_list[1]), $max_mentors_per_list); $i++) {

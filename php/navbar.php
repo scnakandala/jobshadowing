@@ -5,30 +5,20 @@ if (!defined('JOBSHADOWING')) {
 ?>
 <div class="my-navbar" role="navigation">    
     <div class="my-navbar-header">            
-        <ul class="my-nav-links">
-            <li><a id="home-nav" href="./index.php">Job Shadowing</a></li>
-            <li><a id="about-nav" href="./about.php">What is Job Shadowing?</a></li>
-            <li><a id="contact-nav" href="./contact.php">Contact Us</a></li>
-            <?php
-            if (isset($_SESSION['LOGGED_IN']) && ($userInfo['id'] == ADMIN)) {
-                print '<li><a id="admin-nav" href="./admin.php">Admin</a></li>';
-            }
-            ?>
-
-        </ul>
+        <a id="home-nav" href="./index.php"><img src="./webroot/images/logo.png"/> </a>
     </div>
 
     <div class="fb-user">
         <?php if (!isset($_SESSION['LOGGED_IN'])) { ?>
             <a href="<?= $loginUrl ?>">
-                <button type="button" class="btn btn-facebook">Login With Facebook</button>
+                <button type="button" class="btn fb-login-btn">Login with Facebook</button>
             </a>
         <?php } else { ?>
             <div class="fb-name" id="fb-name">
                 Welcome, <a href="<?php echo $userInfo['link']; ?>"> <?php echo $userInfo['name']; ?></a>
-                <img src="https://graph.facebook.com/<?php echo $userInfo['id']; ?>/picture" class="fb-image">
+                <img src="https://graph.facebook.com/<?php echo $userInfo['id']; ?>/picture" id="fb-image">
                 <a href="<?= $logoutUrl ?>">
-                    <button type="button" class="btn btn-danger logout-btn">logout</button>
+                    <button type="button" class="btn logout-btn">logout</button>
                 </a>
             </div>
         <?php } ?>
