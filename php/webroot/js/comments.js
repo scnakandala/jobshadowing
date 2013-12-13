@@ -67,7 +67,7 @@ $(function() {
         }
     });
 
-    $(document).on("click", ".applyBtn2", function(e) {
+    $(document).on("click", ".comments-apply-btn", function(e) {
         e.preventDefault();
         if ($("#fb-name").length > 0) {
             var btnId = this.id;
@@ -116,6 +116,7 @@ $(function() {
             effect: "slideDown",
             delay: 250
         },
+        tooltipClass: "comments-tooltip",
         track: true
     });
 });

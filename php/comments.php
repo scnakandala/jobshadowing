@@ -22,7 +22,7 @@ if (isset($_GET['m_id'])) {
     <body>
         <?php include './navbar.php'; ?>
         <div style="display: none" id="fb-root"></div>             
-        <div style="display: none" id="dialog-confirm" title="Confirm application2">
+        <div style="display: none" id="dialog-confirm" title="Confirm application">
             <p>Do you really want to apply for this session?</p>
         </div>
         <div style="display: none" id="dialog-note" title="">
@@ -40,23 +40,26 @@ if (isset($_GET['m_id'])) {
                     <div id="mentor-comments-header">
                         <table id="mentor-details-table">
                             <tr>
-                                <td rowspan="6"><img src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
-                                <td><h1><a href='http://www.facebook.com/<?php echo $mentor->url; ?>'><?php echo $mentor->name; ?></a></h1></td>
+                                <td rowspan="7"><img id="comments-mentor-image" src='https://graph.facebook.com/<?php echo $mentor->url; ?>/picture?type=large'></td>
+                                <td></td>
+                            </tr>
+                            <tr>                                
+                                <td id="comments-mentor-name"><a href='http://www.facebook.com/<?php echo $mentor->url; ?>'><?php echo $mentor->name; ?></a></td>
                             </tr>
                             <tr>
-                                <td>
+                                <td id="comments-mentor-role">
                                     <a id="role-description-tooltip" href="" title="<?php echo $mentor->roleDesc; ?>">
-                                        <h2><?php echo $mentor->role; ?></h2>
+                                        <?php echo $mentor->role; ?>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h3><a href="<?php echo $mentor->orgUrl; ?>"><?php echo $mentor->org; ?></a></h3>
+                                <td id="comments-mentor-org">
+                                    <a href="<?php echo $mentor->orgUrl; ?>"><?php echo $mentor->org; ?></h3>
                                 </td>
                             </tr>                            
                             <tr>
-                                <td>
+                                <td  id="comments-mentor-session">
                                     <?php
                                     if (!empty($mentor->start)) {
                                         print '<b>Next Session starts on : </b>' . $mentor->start;
@@ -71,7 +74,7 @@ if (isset($_GET['m_id'])) {
                                     <?php
                                     if (!empty($mentor->start)) {
                                         if (isset($_SESSION['LOGGED_IN']) && in_array($mentor->sessionId, getAppliedSessionIds(getUserId($userInfo['id'])))) {
-                                            print "<button type='button'>Applied</button>";
+                                            print "<button type='button' class='btn white-btn comments-applied-btn'>Applied</button>";
                                         } else {
                                             print "<form id='form_" . $mentor->id . "' class='applyForm2' method='post' action='./applySession.php'>";
                                             print "<input type='hidden' name='mentor_id' id='mentor_id' value='" . $mentor->id . "' />";
@@ -79,7 +82,7 @@ if (isset($_GET['m_id'])) {
                                             if ($fbuser) {
                                                 print "<input type='hidden' name='user_url' id='user_url' value='" . $userInfo['id'] . "' />";
                                             }
-                                            print "<input type='button' id='btn_" . $mentor->id . "' value='Apply' class='applyBtn2'>";
+                                            print "<input type='button' id='btn_" . $mentor->id . "' value='Apply' class='btn white-btn comments-apply-btn'>";
                                             print "</form>";
                                         }
                                     }

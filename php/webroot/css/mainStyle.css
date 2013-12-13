@@ -24,7 +24,7 @@ h1{
 }
 
 .white-btn{
-    background-color: #fff !important;
+    background-color: #fff;
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -359,5 +359,60 @@ select{
     margin-top: 3px;
 }
 
+#mentor-details-table{
+    /*background-color: #FF9933;*/
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
 
+#comments-mentor-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border: #666 solid 2px;
+    margin-right: 20px;
+}
+
+#comments-mentor-name,
+#comments-mentor-name a{
+    font-size: 24px;
+    color: #1966AC;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#comments-mentor-role,
+#comments-mentor-role a{
+    font-size: 18px;
+    color: #666;
+    text-decoration: none;
+}
+
+.comments-tooltip{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: justify;
+}
+
+#comments-mentor-org,
+#comments-mentor-org a{
+    font-size: 16px;
+    color: #888;
+    text-decoration: none;
+}
+
+#comments-mentor-session{
+    padding-top: 10px;
+    font-size: 18px;
+    color: #47a447;
+    text-decoration: none;
+}
+
+.comments-applied-btn:hover{
+    background-color: #fff;
+    cursor: default;
+}
 //1966AC
