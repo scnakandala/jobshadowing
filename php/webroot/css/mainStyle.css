@@ -6,15 +6,111 @@ body{
     border: 0;
     background: transparent;  
     min-width: 800px;
+    font-family: Arial, Helvetica, sans-serif;  
+}
+
+h1{
+    font-weight: normal;
+    color: #555;
 }
 
 .btn{
     cursor: pointer;
-    -moz-border-radius:8px;
-    -webkit-border-radius:8px;
-    border-radius:8px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
     border-width: 1px;
     border-style: solid;
+}
+
+.white-btn{
+    background-color: #fff !important;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: #555;
+    border-width: 1px;
+    padding: 5px 10px;
+}
+
+.white-btn:hover{
+    background-color: #eee;
+}
+
+input[type="file"]
+{
+    border: #555 solid 1px;
+    padding: 5px 10px;
+}
+
+input[type="text"], textArea
+{
+    padding: 5px 10px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border: #555 solid 1px;
+}
+
+select{
+    border: #555 solid 1px;
+    -moz-border-radius: 5px 0 0 5px;
+    -webkit-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    padding: 5px 10px;
+}
+
+.ui-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 10px !important;
+    font-size: 14px;
+}
+
+.ui-widget-header {
+    background: #1966AC;
+    margin: 5px 5px 0 5px;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background: #fff !important;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: #555 solid 1px;
+    padding: 0;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border: 1px solid #999999;
+        color: #444;
 }
 
 .my-navbar{
@@ -107,6 +203,7 @@ body{
 #content{
     padding-bottom: 10px;
     background-color: #fff;
+    margin: 0 10%;
 }
 
 #footer{
@@ -159,3 +256,108 @@ body{
     padding-right: 10px;
 }
 
+.div-widgets{
+    padding: 0px 20px;
+    border: #1966AC solid 1px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-left: #1966AC solid 5px;
+    border-right: #1966AC solid 5px;
+    margin-top: 20px;
+}
+
+.div-widgets>h2{
+    font-weight: normal;
+    color: #1966AC;
+    margin-bottom: 0;
+}
+
+.div-widgets a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #47a447;
+}
+
+.div-widgets a:hover{
+    color: #398439 ;
+}
+
+.div-widgets>p{
+    font-weight: bold;
+}
+
+#progress, #progress2{
+    display: none;    
+    position:relative; 
+    width:220px; 
+    border: 1px solid #ddd; 
+    padding: 1px; 
+    border-radius: 3px;
+    margin-bottom: 10px;
+    /*background-color: #f00;*/
+}
+
+#message, #message2{
+    font-weight: bold;
+    color: #47a447;
+    margin-bottom: 10px;
+    /*background-color: #ff0;*/
+}
+
+#export-new{
+    margin-top: 10px;
+}
+
+#export-new-label{    
+    font-size: 14px;
+    font-weight: bold;
+    color: #47a447;
+}
+
+#role-names, #company-names{
+    max-width: 30%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#role-desc, #company-desc{
+    width: 65%;
+    max-width: 65%;
+    min-height: 30px;
+    border: #999 solid 1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 0 5px 5px 5px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#edit-role-btn, #edit-company-btn{
+    float: right;
+}
+
+.edit-dialog{
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+.edit-dialog>p>label{
+    font-weight: bold;
+    color: #1966AC;
+    margin-bottom: 5px;
+}
+
+#dialog-role-desc, #dialog-company-desc {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 3px;
+}
+
+
+//1966AC

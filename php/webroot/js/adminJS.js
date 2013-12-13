@@ -116,8 +116,8 @@ $(document).ready(function()
         width: 600,
         modal: true,
         resizable: false,
-        buttons: {
-            "Save": function() {
+        buttons: {            
+            "Save":function() {
                 $(this).dialog("close");
                 updateRole();
             },
@@ -168,7 +168,6 @@ $(document).ready(function()
     }
     
     function getCompanies() {
-        console.log("get companies");
         var formUrl = 'companyDesc.php';
         $.ajax(
                 {

@@ -744,7 +744,7 @@ fieldset[disabled] .btn-link:focus {
     float: right;
 }
 
-#dialog-role-desc, #dialog-company-desc, #dialog-company-url {
+#dialog-role-desc, #dialog-company-desc {
     width: 90%;
     margin-top: 3px;
 }

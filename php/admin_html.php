@@ -12,10 +12,9 @@ if (!defined('JOBSHADOWING')) {
     </p>
     <form id="add-sessions-form" action="addSessions.php" method="post" enctype="multipart/form-data">
         <input type="file" size="60" name="myfile">
-        <input type="submit" value="Upload Excel File">
+        <input type="submit" class="btn white-btn" value="Upload Excel File">
     </form>
     <div id="message"></div>
-    <br/>
     <div id="progress">
         <img src="./webroot/images/ajax-loader-bar.gif"/>
     </div>
@@ -27,10 +26,9 @@ if (!defined('JOBSHADOWING')) {
     </p>
     <form id="update-requests-form" action="updateRequests.php" method="post" enctype="multipart/form-data">
         <input type="file" size="60" name="myfile2">
-        <input type="submit" value="Upload Excel File">
+        <input type="submit" class="btn white-btn" value="Upload Excel File">
     </form>
     <div id="message2"></div>
-    <br/>
     <div id="progress2">
         <img src="./webroot/images/ajax-loader-bar.gif"/>
     </div>
@@ -42,9 +40,10 @@ if (!defined('JOBSHADOWING')) {
         You can export the pending requests to an excel sheet and download.
     </p>
     <form id="export-form" method="post" action="exportRequests.php">
-        <input type="submit" id="export-btn" name="export-btn" value="Export & Download Requests"/>
+        <input type="submit" class="btn white-btn" id="export-btn" name="export-btn" value="Export & Download Requests"/>
         <br/>         
-        <input type="checkbox" id="export-new" name="export-new" value="1"/>&ensp; New Requests since last export only
+        <input type="checkbox" id="export-new" name="export-new" value="1"/>
+        <label for="export-new" id="export-new-label"> &ensp; Only the New Requests since last export</label>
     </form>
 </div>
 <!--<hr>-->
@@ -59,9 +58,9 @@ if (!defined('JOBSHADOWING')) {
     <div id="role-desc" name="role-desc">
         <p id="role-desc-text"></p>
         <!--<hr/>-->
-        <input type="button" id="edit-role-btn" name="edit-role-btn" value="edit"/>
+        <input type="button" class="btn white-btn" id="edit-role-btn" name="edit-role-btn" value="edit"/>
     </div>
-    <div style="display: none;text-align: left;" id="dialog-edit" title="Edit Role">
+    <div id="dialog-edit" class="edit-dialog" title="Edit Role">
         <p>
             <label>Role ID:</label>
             <b><label id="dialog-role-id"></label></b>
@@ -86,9 +85,9 @@ if (!defined('JOBSHADOWING')) {
     <select id="company-names" name="company-names" size="5"></select>
     <div id="company-desc" name="company-desc">
         <p id="company-desc-text"></p>
-        <input type="button" id="edit-company-btn" name="edit-company-btn" value="edit"/>
+        <input type="button" class="btn white-btn" id="edit-company-btn" name="edit-company-btn" value="edit"/>
     </div>
-    <div style="display: none;text-align: left;" id="dialog-edit-company" title="Edit Company">
+    <div class="edit-dialog" id="dialog-edit-company" title="Edit Company">
         <p>
             <label>Company ID:</label>
             <b><label id="dialog-company-id"></label></b>
