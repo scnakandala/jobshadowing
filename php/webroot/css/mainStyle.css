@@ -416,4 +416,74 @@ select{
     background-color: #fff;
     cursor: default;
 }
-//1966AC
+
+
+/*By Supun*/
+
+#main-content{
+    width: 80%;
+    margin: auto;
+}
+
+.company_mentors{
+    width: 70%;
+    float: left;
+}
+
+.company_name{
+    width: 90%;
+}
+
+.mentors{
+    width: 90%;
+    margin: auto;
+}
+
+.company_summary{
+    width: 30%;
+    float: left;
+}
+
+.left_mentor{
+    width: 40%;
+    float: left;
+    clear: left;
+}
+
+.right_mentor{
+    width: 40%;
+    float: left;
+    clear: right;
+}
+
+.see_more{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    float: left;
+}
+
+.mentor{
+    margin: 5px;
+}
+
+.mentor_photo{
+    width: 30%;
+    float: left;
+}
+
+
+.mentor_info{
+    width: 70%;
+    float: right;
+}
+
+.vacancy_type{
+    float: left;
+    text-align: center;
+    margin:auto;
+    border: #000000;
+    border-width: 5px;
+    width: 33%;
+    border-right: black thin;
+}

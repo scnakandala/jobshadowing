@@ -169,6 +169,70 @@ function getMentorsOfRole($role_id) {
     return array($role_name, $mentors);
 }
 
+
+/**
+ * Function to get all the available mentors of a company of a given role
+ * 
+ * @param int $org_id
+ * @param int $role_id
+ * 
+ * @return array mentors
+ */
+function getAvailableMentors($org_id, $role_id) {
+    $sql = "select "
+            . USER_ID . "," . USER_NAME . "," . USER_URL . ","
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER . "," . ROLE
+            . "," . ORG . " where " . USER_ROLE . "=" . ROLE_ID . " and "
+            . ORG_ID . " = " . USER_ORG . " and " . USER_ROLE . " = " . $role_id
+            . " and " . USER_ORG . " = " . $org_id
+            . " order by " . USER_NAME;
+    $result = mysql_query($sql);
+    $mentors = array();
+    while ($row = mysql_fetch_array($result)) {
+        list($start, $sessionId) = getSession($row[0]);
+        if($start==null){
+            continue;
+        }
+        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
+        array_push($mentors, $mentor);
+    }
+
+    return $mentors;
+}
+
+
+/**
+ * Function to get all the available number of mentors of a company of a given role
+ * 
+ * @param int $org_id
+ * @param int $role_id
+ * 
+ * @return array mentors
+ */
+function getAvailableNumberOfMentors($org_id, $role_id) {
+    // bad implementation. Has to optmize sql
+    $sql = "select "
+            . USER_ID . "," . USER_NAME . "," . USER_URL . ","
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER . "," . ROLE
+            . "," . ORG . " where " . USER_ROLE . "=" . ROLE_ID . " and "
+            . ORG_ID . " = " . USER_ORG . " and " . USER_ROLE . " = " . $role_id
+            . " and " . USER_ORG . " = " . $org_id
+            . " order by " . USER_NAME;
+    $result = mysql_query($sql);
+    $mentors = array();
+    while ($row = mysql_fetch_array($result)) {
+        list($start, $sessionId) = getSession($row[0]);
+        if($start==null){
+            continue;
+        }
+        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
+        array_push($mentors, $mentor);
+    }
+
+    return count($mentors);
+}
+
+
 /**
  * This function returns the start date and id of the session if open session exits else
  * returns null.
@@ -433,7 +497,7 @@ function addMentor($name, $fb, $org, $role) {
  * @return array
  */
 function getMostFrequentJobRoles($org_id) {
-    $sql = "select " . ROLE_NAME . ", count(*) as cnt from " . USER . "," . ROLE
+    $sql = "select " . ROLE_ID . "," . ROLE_NAME . ", count(*) as cnt from " . USER . "," . ROLE
             . "," . ORG . " where " . ORG_ID . " = " . $org_id . " and " . USER_ORG . " = " . ORG_ID .
             " and " . USER_ROLE . " = " . ROLE_ID . " group by " . ROLE_NAME . " order by  cnt desc";
     $result = mysql_query($sql);
@@ -443,7 +507,7 @@ function getMostFrequentJobRoles($org_id) {
         if ($i == 3) {
             break;
         }
-        array_push($roles, $row[0]);
+        array_push($roles, array($row[0], $row[1], $row[2]));
         $i++;
     }
 
@@ -566,11 +630,15 @@ function updateRole($role_id, $role_name, $role_desc) {
  * @return String
  */
 function getOrgDescription($org_id) {
-    $sql = "select " . ORG_DESC . " from " . ORG . " where " . ORG_ID . "=" . $org_id;
+    $sql = "select " . ORG_DESC . " from " . ORG . " where " . ORG_ID . " = " . $org_id;
     $result = mysql_query($sql);
-    $row = mysql_fetch_array($result);
-    $desc = $row['0'];
-    return $desc;
+    try {
+        $row = mysql_fetch_array($result);
+        $desc = $row['0'];
+        return $desc;
+    } catch (Exception $ex) {
+        return "";
+    }
 }
 
 /**
@@ -607,6 +675,19 @@ function getMentorDetails($userID) {
         list($start, $sessionId) = getSession($userID);
         return new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
     }
+}
+
+/**
+ * Given the org id returns the org name
+ * 
+ * @param int $org_id org id
+ * @return String     org name
+ */
+function getOrgName($org_id) {
+    $sql = "select " . ORG_NAME . " from " . ORG . " where " . ORG_ID . " = " . $org_id;
+    $result = mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    return $row[0];
 }
 
 ?>

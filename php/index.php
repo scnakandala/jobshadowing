@@ -32,10 +32,33 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                 include './select_uni.php';
             } else {
                 print '<div id="main-content">';
-                include './mentors_list.php';
+                $mentors_lists = getMentorsByCompany();
+                $minimum = true;
+                $count = 0;
+                foreach ($mentors_lists as $mentors_list) {
+                    $count++;
+                    if (empty($mentors_list[1])) {
+                        continue;
+                    }
+                    print '<div class="company_mentors">';
+                    print '<div class="company_name">';
+                    print("<h2>" . $mentors_list[0][1] . "</h2>");
+                    print '<hr style="width:80%;float:left"/>';
+                    print '<a><img style="float:left;width:5%" src="./webroot/images/more_button.jpg"></a>';
+                    print '<hr style="width:10%;float:left"/>';
+                    print '</div>';
+                    print '<div class="mentors">';
+                    include './mentors_list.php';
+                    print '</div>';
+                    print '</div>';
+                    print '<div class="company_summary">';
+                    $org_id = $mentors_list[0][0];
+                    include './company_summary.php';
+                    print '</div>';
+                }
                 print '</div>';
             }
-            ?>
+            ?>`
         </div>            
         <?php include './footer.php'; ?>
         <!--------js scripts------->    

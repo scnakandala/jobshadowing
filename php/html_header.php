@@ -13,6 +13,6 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
-    <link rel="stylesheet" href="./webroot/css/mainStyle.css"> 
+    <link rel="stylesheet" href="./webroot/css/mainStyle.css">
     
 <!--</head>-->
