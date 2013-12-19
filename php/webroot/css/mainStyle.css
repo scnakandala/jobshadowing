@@ -453,7 +453,7 @@ select{
 .right_mentor{
     width: 40%;
     float: left;
-    clear: right;
+    clear: none;
 }
 
 .see_more{
