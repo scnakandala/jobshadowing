@@ -43,9 +43,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                     print '<div class="company_mentors">';
                     print '<div class="company_name">';
                     print("<h2>" . $mentors_list[0][1] . "</h2>");
-                    print '<hr style="width:80%;float:left"/>';
-                    print '<a><img style="float:left;width:5%" src="./webroot/images/more_button.jpg"></a>';
-                    print '<hr style="width:10%;float:left"/>';
+                    include './drop_down_menu.php';
                     print '</div>';
                     print '<div class="mentors">';
                     include './mentors_list.php';
@@ -81,6 +79,12 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-
+        <script type="text/javascript" src="./webroot/js/dropit.js"></script>
+        <link rel="stylesheet" href="./webroot/css/dropit.css">
+        <script>
+            $(document).ready(function() {
+                $('.menu').dropit();
+            });
+        </script>
     </body>
 </html>
