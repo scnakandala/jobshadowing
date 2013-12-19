@@ -40,7 +40,7 @@ if (empty($org_id)) {
         <div style="float: left;text-align: center;margin:auto;border: #000000;border-width: 5px; width: 33%">
                 <?php print $vacancy[2] ?>
                 <br/>
-                <a class="company_mentors_link" href="<?php print("./company_mentors.php?org_id=$org_id&role_id=$vacancy[0]") ?>"><?php print $vacancy[1] ?></a>
+                <a class="company_mentors_link" href="<?php print("./company_mentors.php?org_id=$org_id&role_id=$vacancy[0]") ?>"><?php print $vacancy[1];echo's'; ?></a>
             </div>
             <?php
             $temp = !$temp;
