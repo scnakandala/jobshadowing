@@ -61,6 +61,13 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
         <?php include './footer.php'; ?>
         <!--------js scripts------->    
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="./webroot/js/dropit.js"></script>
+        <link rel="stylesheet" href="./webroot/css/dropit.css">
+        <script>
+            $(document).ready(function() {
+                $('.menu').dropit();
+            });
+        </script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script>
         <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
@@ -78,13 +85,6 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1411390219096779";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <script type="text/javascript" src="./webroot/js/dropit.js"></script>
-        <link rel="stylesheet" href="./webroot/css/dropit.css">
-        <script>
-            $(document).ready(function() {
-                $('.menu').dropit();
-            });
-        </script>
+        </script>        
     </body>
 </html>
