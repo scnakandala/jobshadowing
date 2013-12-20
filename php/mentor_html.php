@@ -3,7 +3,7 @@ if (!isset($user)) {
     exit;
 }
 ?>
-<div class="mentor">
+<div class="popup_mentor">
     <div class="mentor_photo">
         <?php print "<img src='https://graph.facebook.com/$user->url/picture'>" ?>
     </div>

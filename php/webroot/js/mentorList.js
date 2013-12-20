@@ -56,7 +56,7 @@ $(document).ready(function() {
             }
         });
     });
-    
+
     $(document).on("click", "a.filter", function(e) {
         e.preventDefault();
         var formUrl = $(this).attr("href");
@@ -74,7 +74,28 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(document).on("click", "a.company_mentors_link", function(e) {
+        e.preventDefault();
+        var formUrl = $(this).attr("href");
+        $.ajax({
+            url: formUrl,
+            type: "GET",
+            data: {is_ajax: true},
+            success: function(data)
+            {
+                $('#vacancy_list').html(data);
+                $('#vacancy_list').dialog({
+                    autoOpen: true,
+                    width: 400,
+                    modal: true,
+                    resizable: false,
+                });
+            }
+        });
+    });
 });
+
 
 
 

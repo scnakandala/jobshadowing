@@ -32,6 +32,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                 include './select_uni.php';
             } else {
                 print '<div id="main-content">';
+                print '<div id="vacancy_list"></div>';
                 $mentors_lists = getMentorsByCompany();
                 $minimum = true;
                 $count = 0;

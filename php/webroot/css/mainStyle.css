@@ -490,3 +490,8 @@ select{
 .company_summary_content{
     margin-top: 100px;
 }
+
+.popup_mentor{
+    clear: right;
+    margin: 10px;
+}
