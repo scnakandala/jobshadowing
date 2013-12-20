@@ -200,6 +200,33 @@ function getAvailableMentors($org_id, $role_id) {
     return $mentors;
 }
 
+/**
+ * Function to get all the  mentors of a company of a given role
+ * 
+ * @param int $org_id
+ * @param int $role_id
+ * 
+ * @return array mentors
+ */
+function getMentorsByOrgAndRole($org_id, $role_id) {
+    $sql = "select "
+            . USER_ID . "," . USER_NAME . "," . USER_URL . ","
+            . ROLE_NAME . "," . ORG_NAME . "," . ORG_URL . "," . ROLE_DESC . " from " . USER . "," . ROLE
+            . "," . ORG . " where " . USER_ROLE . "=" . ROLE_ID . " and "
+            . ORG_ID . " = " . USER_ORG . " and " . USER_ROLE . " = " . $role_id
+            . " and " . USER_ORG . " = " . $org_id
+            . " order by " . USER_NAME;
+    $result = mysql_query($sql);
+    $mentors = array();
+    while ($row = mysql_fetch_array($result)) {
+        list($start, $sessionId) = getSession($row[0]);
+        $mentor = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $start, $sessionId, $row[6]);
+        array_push($mentors, $mentor);
+    }
+
+    return $mentors;
+}
+
 
 /**
  * Function to get all the available number of mentors of a company of a given role

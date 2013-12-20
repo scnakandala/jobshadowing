@@ -56,6 +56,24 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $(document).on("click", "a.filter", function(e) {
+        e.preventDefault();
+        var formUrl = $(this).attr("href");
+        var parent_content_id = $(this).attr("parent_content_id");
+        $('#dialog-wait').dialog("open");
+        $.ajax({
+            url: formUrl,
+            type: "GET",
+            data: {is_ajax: true},
+            success: function(data)
+            {
+                parent_content_id = "#" + parent_content_id;
+                $(parent_content_id).html(data);
+                $('#dialog-wait').dialog("close");
+            }
+        });
+    });
 });
 
 

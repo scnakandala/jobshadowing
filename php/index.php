@@ -40,6 +40,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                     if (empty($mentors_list[1])) {
                         continue;
                     }
+                    $org_id = $mentors_list[0][0];
                     print '<div class="company_mentors">';
                     print '<div class="company_name">';
                     print("<h2>" . $mentors_list[0][1] . "</h2>");
@@ -50,7 +51,6 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                     print '</div>';
                     print '</div>';
                     print '<div class="company_summary">';
-                    $org_id = $mentors_list[0][0];
                     include './company_summary.php';
                     print '</div>';
                 }
