@@ -29,9 +29,9 @@ foreach ($mentors_list[1] as $user) {
                     }
 
                     if (isset($_SESSION['LOGGED_IN']) && in_array($user->sessionId, getAppliedSessionIds(getUserId($userInfo['id'])))) {
-                        print "<button type='button'>Applied</button>";
+                        print "<button type='button' class='btn white-btn comments-applied-btn'>Applied</button>";
                     } else {
-                        print "<input type='button' id='btn_" . $user->id . "' value='Apply' class='applyBtn'>";
+                        print "<input type='button' id='btn_" . $user->id . "' value='Apply' class='btn white-btn comments-apply-btn applyBtn'>";
                     }
                     print "</form>";
                 }

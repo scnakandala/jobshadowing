@@ -45,7 +45,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                     print '<div class="company">';
                     print '<div class="company_mentors">';
                     print '<div class="company_name">';
-                    print("<h2>" . $mentors_list[0][1] . "</h2>");
+                    print("<h2>" .strtoupper($mentors_list[0][1]) . "</h2>");
                     include './drop_down_menu.php';
                     print '</div>';
                     print '<div class="mentors">';
