@@ -486,3 +486,7 @@ select{
     border-width: 5px;
     width: 33%;
 }
+
+.company_summary_content{
+    margin-top: 100px;
+}

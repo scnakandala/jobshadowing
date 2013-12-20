@@ -8,7 +8,7 @@ if (empty($org_id)) {
     exit;
 }
 ?>
-<div>
+<div class="company_summary_content">
     <?php
     $company_name = getOrgName($org_id);
     $company_description = getOrgDescription($org_id);

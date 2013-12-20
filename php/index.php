@@ -41,6 +41,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                         continue;
                     }
                     $org_id = $mentors_list[0][0];
+                    print '<div class="company">';
                     print '<div class="company_mentors">';
                     print '<div class="company_name">';
                     print("<h2>" . $mentors_list[0][1] . "</h2>");
@@ -52,6 +53,7 @@ if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == true) {
                     print '</div>';
                     print '<div class="company_summary">';
                     include './company_summary.php';
+                    print '</div>';
                     print '</div>';
                 }
                 print '</div>';
