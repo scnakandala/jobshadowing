@@ -54,7 +54,7 @@ $(function() {
         autoOpen: false,
         dialogClass: 'noTitleDialog',
         width: 100,
-        height: 90,
+        height: 110,
         modal: true,
         resizable: false,
         show: {

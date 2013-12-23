@@ -1,14 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400,700,300);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 body{
     padding: 0;
     margin: 0;
     border: 0;
     background: transparent;  
-    min-width: 800px;
+    min-width: 1210px;
     font-family: Arial, Helvetica, sans-serif;  
 }
 
@@ -29,11 +30,13 @@ h1{
 .white-btn{
     background-color: #fff;
     color: #333;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
     border-color: #555;
     border-width: 1px;
     padding: 5px 10px;
+    margin-top: 3px;
 }
 
 .white-btn:hover{
@@ -454,6 +457,54 @@ select{
     float: left;
 }
 
+.company-summary-content{
+    margin-top: 50px;
+}
+
+.company-summary-content>h2{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: lighter;
+    font-size: 34px;
+    margin-bottom: 0;
+}
+
+.company-summary-desc{
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    text-align: justify;
+    font-weight: normal;
+    color: #444;
+}
+
+.num-vacancy{
+    color: #1966AC;
+}
+
+.vacancy-box{
+    float: left;
+    text-align: center;
+    margin:auto;
+    width: 33%
+}
+
+.middle-box{    
+    border-right: #888 solid 1px;
+    border-left: #888 solid 1px;
+}
+
+.vacancy-box-value{
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 48px;
+    color: #47a447;
+}
+
+.company_mentors_link{
+    text-decoration: none;
+    color: #1966AC;
+    font-weight: bold;
+}
+
 .left_mentor{
     width: 40%;
     float: left;
@@ -546,4 +597,9 @@ select{
 .popup_mentor{
     clear: right;
     margin: 10px;
+}
+
+#dialog-wait{
+    text-align: center;
+    vertical-align: middle;
 }
